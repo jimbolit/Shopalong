@@ -46,7 +46,7 @@ post "/lists/thanks" do
             client.messages.create(
             from: "+12076186686", 
             to: "+642102377971",
-            body: "Thanks for making your list to be delivered to #{@list[:delivery_address]} , we will be in touch soon with an expected delivery time"
+            body: "Thanks for making your list to be delivered to #{params["delivery_location"]} , we will be in touch soon with an expected delivery time"
             )
 
             view "list_new"

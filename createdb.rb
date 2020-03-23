@@ -31,11 +31,11 @@ lists_table.insert(
                     date_posted: "March 25 2020",
                     comments: "Please call once you are out the front",
                     delivery_location: "111 Puka Crescent, Matarangi, New Zealand",
-                    items: "2x Fly spray
-                            Two litre bottle of dark blue milk
-                            1kg bag of plain flour
-                            2x large blocks of black forest chocolate
-                            1kg block of Edam cheese
+                    items: "2x Fly spray <br/>
+                            Two litre bottle of dark blue milk <br/>
+                            1kg bag of plain flour <br/>
+                            2x large blocks of black forest chocolate <br/>
+                            1kg block of Edam cheese <br/>
                             Bag of ground plunger coffee",
                     user_id: 1)
 
@@ -43,8 +43,8 @@ lists_table.insert(
                     date_posted: "March 26 2020",
                     comments: "Big house with the green fence",
                     delivery_location: "6 Westbourne Rd, Remuera, Auckland, New Zealand",
-                    items: "2x 6 pack of two ply toilet paper
-                            1l bottle of pulp orange juice
+                    items: "2x 6 pack of two ply toilet paper <br/>
+                            1l bottle of pulp orange juice <br/>
                             spf 50 sunscreen 200 ml",
                     user_id: 1)
 
