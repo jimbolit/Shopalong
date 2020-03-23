@@ -14,7 +14,7 @@ before { puts; puts "--------------- NEW REQUEST ---------------"; puts }
 after { puts; }                                                                 
 #######################################################################################
 
-lists_table = DB.from(:purchases)
+lists_table = DB.from(:lists)
 users_table = DB.from(:users)
 
 # Twilio API credentials and connection
@@ -31,7 +31,7 @@ end
 
 get "/" do
     @lists = lists_table.all.to_a
-    view "ists"
+    view "lists"
 end
 
 post "/lists/thanks" do
@@ -41,14 +41,22 @@ post "/lists/thanks" do
                            date_posted: params["date_posted"],
                            comments:params["comments"],
                            delivery_location: params["delivery_location"])
-    view "lists_thanks"
+
+# send SMS from trial Twilio number to my verified non-Twilio number 
+            client.messages.create(
+            from: "+12076186686", 
+            to: "+642102377971",
+            body: "Thanks for making your list to be delivered to #{@list[:delivery_address]} , we will be in touch soon with an expected delivery time"
+            )
+
+            view "list_new"
 end
 
 get "/list/:id" do
-    @list = purchases_list.where(id: params["id"]).to_a[0]
+    @list = lists_table.where(id: params["id"]).to_a[0]
     @users_table = users_table
 
-    @location = @purchase[:delivery_location]
+    @location = @list[:delivery_location]
     @results = Geocoder.search("#{@location}")
     lat_long = @results.first.coordinates
     lat = lat_long[0]
@@ -56,17 +64,6 @@ get "/list/:id" do
     @coords = "#{lat},#{long}"
 
     view "list"
-end
-
- 
-# send the SMS from your trial Twilio number to your verified non-Twilio number 
-    client.messages.create(
-    from: "+12076186686", 
-    to: "+642102377971",
-    body: "Thanks for joining the #{@purchase[:title]} bandwagon. This text confirms that you are on the bandwagon!"
-    )
-  
-    view "bandwagon_thanks"
 end
 
 get "/users/new" do

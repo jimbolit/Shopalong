@@ -39,7 +39,7 @@ lists_table.insert(
                             Bag of ground plunger coffee",
                     user_id: 1)
 
-purchases_table.insert(
+lists_table.insert(
                     date_posted: "March 26 2020",
                     comments: "Big house with the green fence",
                     delivery_location: "6 Westbourne Rd, Remuera, Auckland, New Zealand",
@@ -51,9 +51,11 @@ purchases_table.insert(
 users_table.insert(name: "Jim Little", 
                     email: "jameslittle@outlook.co.nz",
                     mobile_number: "02102377971",
-                    password: BCrypt::Password.create("jim"))
+                    password: BCrypt::Password.create("jim")
+                    )
 
-users_table.insert(name: "Xindi", 
+users_table.insert(name: "Xindi Zhang", 
                     email: "xindi.k.zhang@gmail.com",
-                    mobile_number: "+61419763177"
-                    password: BCrypt::Password.create("xindi"))
+                    mobile_number: "+61419763177",
+                    password: BCrypt::Password.create("xindi")
+                    )
