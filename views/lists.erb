@@ -1,0 +1,46 @@
+<div class="jumbotron jumbotron-fluid bg-dark">
+  
+  <div class="jumbotron-background">
+    <img src="fresh_food.jpg" class="blur ">
+  </div>
+
+  <div class="container text-white">
+
+    <h1 class="display-4">Get your shopping delivered with Instashop</h1>
+    <p class="lead">Post your shopping list and one of our team members will deliver right to your door on the same or next day</p>
+    <hr class="my-4">
+
+  </div> 
+</div>
+
+
+<div class="row">
+    <div class="col-sm-8">
+        <h1> Active Lists </h1>
+        <% for lists in @lists %>
+            <h4 class= "mt-5"> <a href = "/list/<%= lists[:id]%>"> <%=lists[:delivery_location]%> </a> </h4>
+        <% end %>
+    </div>
+    <div class="col-sm-4 mt-5">
+        <h2> Submit your list </h2>
+        <form action="/lists/thanks" method="post">
+            <div class="form-group">
+                <label>Your address</label>
+                <textarea class="form-control" rows="1" name="delivery_location"></textarea>
+            </div>
+            <div class="form-group">
+                <label> Today's date </label>
+                <textarea class="form-control" rows="1" name="date_posted"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Your shopping list</label>
+                <textarea class="form-control" rows="5" name="items"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Leave a delivery note if required</label>
+                <textarea class="form-control" rows="3" name="comments"></textarea>
+            </div>
+            <button class="btn btn-primary submit"> Submit</button>
+        </form>
+    </div>
+</div>
