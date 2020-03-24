@@ -73,7 +73,7 @@ end
 post "/users/create" do
     puts params
     hashed_password = BCrypt::Password.create(params["password"])
-    users_table.insert(name: params["name"], email: params["email"], mobile_number: params["mobile_number"],password: hashed_password, mobile_number: params["mobile_number"])
+    users_table.insert(name: params["name"], email: params["email"], mobile_number: params["mobile_number"],password: hashed_password)
     view "create_user"
 end
 

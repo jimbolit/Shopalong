@@ -19,7 +19,7 @@ DB.create_table! :users do
   String :name
   String :email
   String :password
-  Integer :mobile_number
+  String :mobile_number
 end
 
 

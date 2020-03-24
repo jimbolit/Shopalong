@@ -4,8 +4,14 @@
         <h1 class = "mt-3"> <%= @list[:delivery_location] %> </h1>
         
 
-        <h3 class = "mt-5"> Date posted: <%= @list[:date_posted] %> </h3>
-        <h4 class = "mt-5"> Delivery notes <%= @list[:comments] %> </h3>
+        <h4 class = "mt-5"> Posted <%= @list[:date_posted] %> </h4>
+
+         <h4 class = "mt-5"> Phone number: </h4>
+         <p> <%= @users_table.where(id: @list[:user_id]).to_a[0][:mobile_number]%></p>
+
+        <h4 class = "mt-5"> Delivery notes: </h4>
+        <p> <%= @list[:comments] %> </p>
+        <h4 class = "mt-5"> Item List </h4>
             <p class = "mt-2"> <%= @list[:items] %></p>
 
     </div>
