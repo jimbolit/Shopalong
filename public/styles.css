@@ -24,8 +24,8 @@
 }
 
 img.blur {
-	-webkit-filter: blur(4px);
-	filter: blur(4px);
-  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
+	-webkit-filter: blur(2px);
+	filter: blur(2px);
+  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='2');
 
 }
