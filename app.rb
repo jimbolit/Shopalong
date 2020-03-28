@@ -35,7 +35,7 @@ get "/" do
 end
 
 
-get "/placeholder" do
+get "/lists" do
     @lists = lists_table.all.to_a
     view "lists"
 end
