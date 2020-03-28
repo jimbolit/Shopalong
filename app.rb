@@ -30,8 +30,12 @@ before do
     @current_user = users_table.where(id: session["user_id"]).to_a[0]
 end
 
-
 get "/" do
+    view "welcome"
+end
+
+
+get "/placeholder" do
     @lists = lists_table.all.to_a
     view "lists"
 end
