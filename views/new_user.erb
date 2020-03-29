@@ -1,22 +1,75 @@
+<div class = "container mt-5">
+
 <h1>Sign Up</h1>
 
 <form action="/users/create" method="post">
-  <div class="form-group">
-    <label>Your name</label>
-    <input type="text" class="form-control" name="name">
-  </div>
-  <div class="form-group">
-    <label>Email address</label>
-    <input type="email" class="form-control" placeholder="name@example.com" name="email">
-  </div>
-   <div class="form-group">
-    <label>Phone number</label>
-    <input type="number" class="form-control" placeholder="0211234567" name="mobile_number">
-  </div>
-  <div class="form-group">
-    <label>Password</label>
-    <input type="password" class="form-control" name="password">
-  </div>
-  <button type="submit" class="btn btn-primary">Sign Up</button>
-</form>
-© 2020 GitHub, Inc.
+    <div class="form-group">
+        <label>Your name</label>
+        <input type="text" class="form-control" name="name">
+    </div>
+    <div class="form-group">
+        <label>Email address</label>
+        <input type="email" class="form-control" placeholder="name@example.com" name="email">
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" name="password">
+    </div>
+    <div class="form-group">
+        <label>Phone number</label>
+        <input type="number" class="form-control" placeholder="0211234567" name="mobile_number">
+    </div>
+    
+
+    <div class="form-group">
+            <label>Your address</label>
+            <textarea class="form-control" rows="1" name="address" id="autocomplete" onFocus="geolocate"></textarea>
+    </div>
+
+    <!-- start of javascript -->
+
+    <script>
+    // Set out variables
+
+    var placeSearch, autocomplete;
+
+    function initAutocomplete() {
+    // Create the autocomplete object, it's value is set based off input from the form, and restrict the search predictions to geographical location types.
+    autocomplete = new google.maps.places.Autocomplete(
+        document.getElementById('autocomplete'), {types: ['geocode']});
+
+    // Avoid paying for data that I don't need 
+    autocomplete.setFields(['address_component']);
+
+    // When the user selects an address from the drop-down, populate the
+    // address fields in the form.
+    autocomplete.addListener('place_changed', fillInAddress);
+    }
+
+    // Bias the autocomplete object to the user's geographical location,
+    // as supplied by the browser's 'navigator.geolocation' object.
+    function geolocate() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+        var geolocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+        };
+        var circle = new google.maps.Circle(
+            {center: geolocation, radius: position.coords.accuracy});
+        autocomplete.setBounds(circle.getBounds());
+        });
+    }
+    }
+        </script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["google_maps_api_key"]%>&libraries=places&callback=initAutocomplete"
+            async defer></script>
+
+    <!-- end of javascript -->
+
+  <button type="submit" class="btn btn-primary submit">Sign Up</button>
+
+  </form>
+
+</div>

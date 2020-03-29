@@ -20,6 +20,7 @@ DB.create_table! :users do
   String :email
   String :password
   String :mobile_number
+  String: address
 end
 DB.create_table! :products do
   primary_key :id

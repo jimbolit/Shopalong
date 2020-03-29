@@ -68,6 +68,12 @@ img.blur {
     transition: all 0.3s;
 }
 
+/* submit button */
+
+.btn.submit {
+background-color: blue;
+}
+
 /* Pseudo elements for icons */
 .btn:before {
     font-family: 'FontAwesome';
