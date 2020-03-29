@@ -21,11 +21,20 @@ DB.create_table! :users do
   String :password
   String :mobile_number
 end
+DB.create_table! :products do
+  primary_key :id
+  String :name
+  String :amount
+  String :category 
+  String :image
+  Numeric :price
+end
 
 
 # Insert initial (seed) data
 lists_table = DB.from(:lists)
 users_table = DB.from(:users)
+products_table = DB.from(:products)
 
 lists_table.insert( 
                     date_posted: "March 25 2020",
@@ -58,4 +67,11 @@ users_table.insert(name: "Xindi Zhang",
                     email: "xindi.k.zhang@gmail.com",
                     mobile_number: "+61419763177",
                     password: BCrypt::Password.create("xindi")
+                    )
+
+products_table.insert(name: "Meadow Fresh Uht Milk Standard Long Life 1L", 
+                    amount: "1L",
+                    category: "Breakfast",
+                    image: "mf_uht_std_1l.jpg",
+                    price: 2.89
                     )
