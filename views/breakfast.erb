@@ -1,23 +1,27 @@
 <div class = "container">
     <div class= "row">
-        
-    <div class = "col-md-4">      
+
+    <% for products in @breakfasts %>
+
+    <div class = "col-md-3">      
             <div class="wrapper">
                 <div class="product-img">
-                    <img src="http://bit.ly/2tMBBTd" height="304" width="260">
+                    <img src="<%=products[:image]%>" height="195" width="180">
                 </div>
                 <div class="product-info">
                     <div class="product-text">
-                        <h1>Meadow Fresh Uht Milk Standard Long Life 1L </h1>
-                        <h2>1L</h2>
-                         <p>$<span>78</span></p>
+                        <h1><%=products[:name]%></h1>
+                        <h2><%=products[:amount]%> </h2>
+                         <p>$<span><%="%.2f" % products[:price]%></span></p>
                     </div>
                     <div class="product-price-btn">
                     <input type="number" class="form-control add-to-cart" placeholder="1" name="nuber_of_items">
-                        <button type="button">Add to cart</button>
+                        <button type="button">Add</button>
                     </div>
                 </div>
             </div>
     </div>
     
+<% end %>
+
 </div>

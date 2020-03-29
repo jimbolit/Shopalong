@@ -276,8 +276,8 @@ img.blur {
 /* product cards start */
 
 .wrapper {
-  height: 550px;
-  width: 260px;
+  height: 430px;
+  width: 220px;
   margin: 50px auto;
   border-radius: 7px 7px 7px 7px;
   /* VIA CSS MATIC https://goo.gl/cIbnS */
@@ -288,36 +288,37 @@ img.blur {
 
 .product-img {
   float: left;
-  height: 294px;
-  width: 260px;
+  height: 220px;
+  width: 220px;
 }
 
 .product-img img {
   border-radius: 7px 7px 0px 0px;
+  margin: 20px 18px 0px 18px;
 }
 
 .product-info {
   float: left;
-  height: 270px;
-  width: 260px;
+  height: 200px;
+  width: 200px;
   border-radius: 0 0px 10px 10px;
   background-color: #ffffff;
 }
 
 .product-text {
-  height: 200px;
-  width: 255px;
+  height: 150px;
+  width: 200px;
 }
 
 .product-text h1 {
   margin: 0 0 0 30px;
-  padding-top: 52px;
+  padding-top: 20px;
   font-size: 18px;
   color: #474747;
 }
 
 .product-text h2 {
-  margin: 0 0 20px 30px;
+  margin: 0 0 10px 30px;
   font-size: 18px;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
@@ -338,14 +339,14 @@ img.blur {
 
 .product-price-btn {
   height: 60px;
-  width: 260px;
+  width: 220px;
   position: relative;
 }
 .product-price-btn button {
   float: right;
   display: inline-block;
   height: 50px;
-  width: 150px;
+  width: 100px;
   margin: 0px 10px 0px 5px;
   box-sizing: border-box;
   border: transparent;

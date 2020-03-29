@@ -27,7 +27,7 @@ DB.create_table! :products do
   String :amount
   String :category 
   String :image
-  Numeric :price
+  Decimal :price
 end
 
 
@@ -71,7 +71,51 @@ users_table.insert(name: "Xindi Zhang",
 
 products_table.insert(name: "Meadow Fresh Uht Milk Standard Long Life 1L", 
                     amount: "1L",
-                    category: "Breakfast",
+                    category: "breakfast",
                     image: "mf_uht_std_1l.jpg",
                     price: 2.89
                     )
+
+products_table.insert(name: "Sanitarium Weetbix Wheat Biscuits", 
+                    amount: "1.2Kg",
+                    category: "breakfast",
+                    image: "weetbix12kg.jpg",
+                    price: 7.60
+                    )
+
+products_table.insert(name: "Sanitarium Skippy Cornflakes", 
+                    amount: "1L",
+                    category: "breakfast",
+                    image: "skippycornflakes500g.jpg",
+                    price: 4.30
+                    )
+
+products_table.insert(name: "Golden Crumpets Rounds 300g", 
+                    amount: "300g",
+                    category: "breakfast",
+                    image: "goldencrumpets.jpg",
+                    price: 2.20
+                    )
+
+products_table.insert(name: "Sanitarium Marmite Yeast Spread", 
+                    amount: "500g",
+                    category: "breakfast",
+                    image: "marmite500.jpg",
+                    price: 7.29
+                    )
+
+products_table.insert(name: "Kelloggs Nutrigrain Cereal
+Volume 805g", 
+                    amount: "805g",
+                    category: "breakfast",
+                    image: "nutrigrain805.jpg",
+                    price: 10.00
+                    )
+
+products_table.insert(name: "Frenz Free Range Eggs Dozen Mixed Grade", 
+                    amount: "12pk",
+                    category: "breakfast",
+                    image: "frenzmed12.jpg",
+                    price: 8.99
+                    )
+
