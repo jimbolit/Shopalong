@@ -3,7 +3,6 @@ body {
     font-family: Lato;
 }
 
-
 .jumbotron {
   position:relative;
   overflow:hidden;
@@ -37,29 +36,6 @@ img.blur {
 	filter: blur(2px);
     filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='2');
 
-}
-
-.btn-open {
-  color: white;
-  padding: 40px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 40px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 12px;
-}
-
-.btn-order {
-  background-color: #4CAF50;
-  border: 5px solid #378743;
-  border-radius: 12px;
-}
-
-.btn-fulfill {
-  background-color: #2c54b0;
-  border: 5px solid #354d85;
 }
 
 /* General button style */
@@ -185,4 +161,23 @@ img.blur {
 
 .fulfill-col{
   background-color: #add8e6;  
+}
+
+.guy_shopping {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.page-header{
+    text-align: center;
+}
+
+.header {
+    line-height: 200px;
+    font-size: 80px;
+    margin-left: 100px;
+    margin-top: 20px;
 }

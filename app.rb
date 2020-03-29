@@ -34,6 +34,9 @@ get "/" do
     view "welcome"
 end
 
+get "/categories" do
+    view "categories"
+end
 
 get "/lists" do
     @lists = lists_table.all.to_a
