@@ -207,6 +207,11 @@ img.blur {
   vertical-align: middle;
 }
 
+.wrapper:hover {
+    background-color: lightgrey;
+     opacity:1;
+}
+
 .product-img {
   float: left;
   height: 294px;
