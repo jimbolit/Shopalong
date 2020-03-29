@@ -156,11 +156,11 @@ img.blur {
 }
 
 .order-col{
-  background-color: #B0FFB0;  
+  
 }
 
 .fulfill-col{
-  background-color: #add8e6;  
+    
 }
 
 .guy_shopping {
@@ -230,8 +230,8 @@ img.blur {
   color: #474747;
 }
 
-.card-header {
-    line-height: 200px;
+.card-title {
+    padding: 10% 0;
 }
 
 .product-text h1,
