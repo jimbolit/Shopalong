@@ -193,9 +193,9 @@ img.blur {
     vertical-align: middle;
 }
 
-/* product card */
+/* catevory product card */
 
-.wrapper {
+.p-wrapper {
   height: 294px;
   width: 90%;
   margin: 50px auto;
@@ -207,22 +207,22 @@ img.blur {
   vertical-align: middle;
 }
 
-.wrapper:hover {
+.p-wrapper:hover {
     background-color: lightgrey;
      opacity:1;
 }
 
-.product-img {
+.p-product-img {
   float: left;
   height: 294px;
   width: 229px;
 }
 
-.product-img img {
+.p-product-img img {
   border-radius: 7px 0 0 7px;
 }
 
-.product-info {
+.p-product-info {
   float: left;
   height: 294px;
   width: 229px;
@@ -230,12 +230,12 @@ img.blur {
   background-color: #ffffff;
 }
 
-.product-text {
+.p-product-text {
   height: 210px;
   width: 229px;
 }
 
-.product-text h1 {
+.p-product-text h1 {
   margin: 0 0 0 38px;
   padding-top: 52px;
   font-size: 34px;
@@ -246,12 +246,11 @@ img.blur {
     padding: 10% 0;
 }
 
-.product-text h1,
-.product-price-btn p {
+.p-product-text h1 {
   font-family: 'Bentham', serif;
 }
 
-.product-text h2 {
+.p-product-text h2 {
   margin: 0 0 47px 38px;
   font-size: 13px;
   font-family: 'Raleway', sans-serif;
@@ -261,7 +260,7 @@ img.blur {
   letter-spacing: 0.2em;
 }
 
-.product-text p {
+.p-product-text p {
   height: 125px;
   margin: 0 0 0 38px;
   font-family: 'Playfair Display', serif;
@@ -272,25 +271,6 @@ img.blur {
   overflow: hidden;
 }
 
-.product-price-btn {
-  height: 103px;
-  width: 327px;
-  margin-top: 17px;
-  position: relative;
-}
-
-.product-price-btn p {
-  display: inline-block;
-  position: absolute;
-  top: -13px;
-  height: 50px;
-  font-family: 'Trocchi', serif;
-  margin: 0 0 0 38px;
-  font-size: 28px;
-  font-weight: lighter;
-  color: #474747;
-}
-
 span {
   display: inline-block;
   height: 50px;
@@ -298,16 +278,85 @@ span {
   font-size: 34px;
 }
 
+/* category card ends */
+
+/* product cards start */
+
+.wrapper {
+  height: 550px;
+  width: 260px;
+  margin: 50px auto;
+  border-radius: 7px 7px 7px 7px;
+  /* VIA CSS MATIC https://goo.gl/cIbnS */
+  -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+}
+
+.product-img {
+  float: left;
+  height: 294px;
+  width: 260px;
+}
+
+.product-img img {
+  border-radius: 7px 7px 0px 0px;
+}
+
+.product-info {
+  float: left;
+  height: 270px;
+  width: 260px;
+  border-radius: 0 0px 10px 10px;
+  background-color: #ffffff;
+}
+
+.product-text {
+  height: 200px;
+  width: 255px;
+}
+
+.product-text h1 {
+  margin: 0 0 0 30px;
+  padding-top: 52px;
+  font-size: 18px;
+  color: #474747;
+}
+
+.product-text h2 {
+  margin: 0 0 20px 30px;
+  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: lightslategray;
+  letter-spacing: 0.2em;
+}
+
+.product-text p {
+  margin: 0 0 0 30px;
+  font-family: 'Playfair Display', serif;
+  color: #474747;
+  line-height: 1.7em;
+  font-size: 18px;
+  font-weight: lighter;
+  overflow: hidden;
+}
+
+.product-price-btn {
+  height: 60px;
+  width: 260px;
+  position: relative;
+}
 .product-price-btn button {
   float: right;
   display: inline-block;
   height: 50px;
-  width: 176px;
-  margin: 0 40px 0 16px;
+  width: 150px;
+  margin: 0px 10px 0px 5px;
   box-sizing: border-box;
   border: transparent;
   border-radius: 60px;
-  font-family: 'Raleway', sans-serif;
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
@@ -322,7 +371,14 @@ span {
   background-color: #79b0a1;
 }
 
-/* product card ends */
+.add-to-cart {
+    width: 50px;
+    margin: 5px 0px 0px 30px;
+    float: left;
+}
+
+
+/* product cards end */
 
 /* footer starts */
 

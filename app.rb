@@ -38,6 +38,10 @@ get "/categories" do
     view "categories"
 end
 
+get "/breakfast" do
+    view "breakfast"
+end
+
 get "/lists" do
     @lists = lists_table.all.to_a
     view "lists"
