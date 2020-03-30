@@ -8,6 +8,17 @@ body {
     color: slategray;
 }
 
+img.cart {
+    height: 30px;
+}
+
+.btn.checkout {
+    font-size: 1rem;
+    border: 2px solid;
+    font-weight: bold;
+    margin-left: 25px;
+}
+
 .jumbotron {
   position:relative;
   overflow:hidden;
@@ -44,7 +55,7 @@ img.blur {
 }
 
 /* General button style */
-.btn {
+.startbtn {
     border: none;
     font-family: 'Lato';
     font-size: inherit;
@@ -64,7 +75,7 @@ img.blur {
     transition: all 0.3s;
 }
 
-.btn:after {
+.startbtn:after {
     content: '';
     position: absolute;
     z-index: -1;
@@ -73,14 +84,19 @@ img.blur {
     transition: all 0.3s;
 }
 
-/* submit button */
+/* other buttons */
 
-.btn.submit {
+.startbtn.submit {
 background-color: blue;
 }
 
+.startbtn.checkout {
+background-color: blue;
+}
+
+
 /* Pseudo elements for icons */
-.btn:before {
+.startbtn:before {
     font-family: 'FontAwesome';
     speak: none;
     font-style: normal;
