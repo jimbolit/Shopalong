@@ -20,7 +20,7 @@ DB.create_table! :users do
   String :email
   String :password
   String :mobile_number
-  String: address
+  String :address
 end
 DB.create_table! :products do
   primary_key :id
@@ -60,14 +60,16 @@ lists_table.insert(
 
 users_table.insert(name: "Jim Little", 
                     email: "jameslittle@outlook.co.nz",
-                    mobile_number: "02102377971",
+                    mobile_number: "+642102377971",
+                    address: "6 Westbourne Road, Remuera, Auckland, New Zealand",
                     password: BCrypt::Password.create("jim")
                     )
 
-users_table.insert(name: "Xindi Zhang", 
-                    email: "xindi.k.zhang@gmail.com",
+users_table.insert(name: "Jacinda Ardern", 
+                    email: "jacinda@parliament.com",
                     mobile_number: "+61419763177",
-                    password: BCrypt::Password.create("xindi")
+                    address: "Molesworth Street, Pipitea, Wellington 6011",
+                    password: BCrypt::Password.create("jacinda")
                     )
 
 products_table.insert(name: "Meadow Fresh Uht Milk Standard Long Life 1L", 

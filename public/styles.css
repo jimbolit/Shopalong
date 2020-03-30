@@ -3,6 +3,11 @@ body {
     font-family: Lato;
 }
 
+.navbar-text.logged-in {
+    font-weight: bold;
+    color: slategray;
+}
+
 .jumbotron {
   position:relative;
   overflow:hidden;
