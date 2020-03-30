@@ -201,14 +201,13 @@ background-color: blue;
 }
 
 .card-col{
-    vertical-align: middle;
 }
 
 /* catevory product card */
 
 .p-wrapper {
   height: 294px;
-  width: 90%;
+  width: 480px;
   margin: 50px auto;
   border-radius: 7px 7px 7px 7px;
   /* VIA CSS MATIC https://goo.gl/cIbnS */
