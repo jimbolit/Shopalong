@@ -30,7 +30,17 @@ DB.create_table! :products do
   String :image
   Decimal :price
 end
-
+DB.create_table! :orders do
+  primary_key :id
+  foreign_key :user_id
+  String  :address
+  Timestamp :timestamp
+end
+DB.create_table! :orders_products do
+  primary_key :id
+  foreign_key :order_id
+  foreign_key :product_id
+end
 
 # Insert initial (seed) data
 lists_table = DB.from(:lists)
