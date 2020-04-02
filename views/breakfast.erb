@@ -31,15 +31,22 @@
 <script>
 
 $("button.add_basket").click(function(){ //Start function on add button click
-  id = $(this).attr("id")                //id variable is set to the id of buttton, which is set to the products id. $(this) selects the element that started the function
-  $.ajax({                               //ajax sens a JSON without going to URL
+$.ajax({
     url: "/basket",
     type: "post",
-    data: {product_id: id}
-  }).done(function(data){                //.done ensures this happens after
-    $("#basket").html("Basket: " + data.length); //Set content of the
-  });                                            //selected element (??)
-  event.preventDefault();               //prevents std link functionality
+    data: {id: id}
+  })
+}
+
+  // id = $(this).attr("id")                //id variable is set to the id of buttton, which is set to the products id. $(this) selects the element that started the function
+  // $.ajax({                               //ajax sens a JSON without going to URL
+   // url: "/basket",
+   // type: "post",
+   // data: {product_id: id}
+  // }).done(function(data){                //.done ensures this happens after
+   // $("#basket").html("Basket: " + data.length); //Set content of the
+ // });                                            //selected element (??)
+ // event.preventDefault();               //prevents std link functionality
 });
 
 </script>

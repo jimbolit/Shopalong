@@ -44,6 +44,24 @@ get "/breakfast" do
     view "breakfast"
 end
 
+post '/basket' do
+  @thing = params["user_id"]
+end
+
+get '/basket' do
+  begin
+    @test = session[:basket]
+    @products = products_table.find(session[:basket])  #select from the Product table each of the products in the basket, and set equal to @products  
+rescue                          
+ return erb "There are no items in your basket"
+end
+  erb :basket
+end
+
+
+
+
+
 get "/lists" do
     @lists = lists_table.all.to_a
     view "lists"
