@@ -9,18 +9,18 @@
 <% for products in @products %>
     <div class="item">
         <div class="buttons">
-        <span class="delete-btn"></span>
-        <span class="like-btn"></span>
+            <span class="delete-btn"></span>
+            <span class="like-btn"></span>
         </div>
     
         <div class="image">
-        <img src="item-1.png" alt="" />
+            <img class="img-fluid" src="<%=products[:image]%>" alt="" />
         </div>
     
         <div class="description">
-        <span>Common Projects</span>
-        <span>Bball High</span>
-        <span>White</span>
+        <span><%=products[:name]%></span>
+        < <span></span>
+        <span><%=products[:amount]%></span>
         </div>
     
         <div class="quantity">
@@ -33,7 +33,7 @@
         </button>
         </div>
     
-        <div class="total-price">$549</div>
+        <div class="total-price"><%=products[:price]%></div>
     </div>
 
 <%end%>
