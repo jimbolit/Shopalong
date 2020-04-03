@@ -32,14 +32,20 @@
 
 <script>
 
-$("button").click(function(){
-        type: "POST",
-        url: "/basket",
-        data: { name: "Daniel", phone: "01234123456" },
-        success: function(){ 
-        alert('Success!')},
-        error: function(){
-        console.log(arguments)};
+    $("button").click(function(){
+        id = $(this).attr("id");
+        console.log(id);
+        $.ajax({
+            type: "post",
+            url: "/basket",
+            data: { product_id: id},
+            success: function(){
+                console.log("success")
+            },
+            error: function(){
+                console.log(arguments);
+            }
+        });
     });
 
 </script>

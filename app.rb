@@ -52,13 +52,12 @@ post '/basket' do
 end
 
 get '/basket' do
-    puts params[:product_id]
+    puts session[:basket]
     puts "hello"
     begin
-     @test = session[:basket].to_a
-     @products = products_table.find(session[:basket])
-    rescue
-        return erb "There are no items in your basket"
+     @test = session[:basket]
+     @products = products_table.where(id: session[:basket]).to_a
+    
     end
     view "basket"
 end
