@@ -37,8 +37,9 @@ $("button").click(function(){
         url: "/basket",
         data: { name: "Daniel", phone: "01234123456" },
         success: function(){ 
-        alert('Success!');
-   }
+        alert('Success!')},
+        error: function(){
+        console.log(arguments)};
     });
 
 </script>
