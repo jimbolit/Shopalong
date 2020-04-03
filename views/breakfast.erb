@@ -1,3 +1,5 @@
+
+
 <div class = "container">
     <div class= "row">
 
@@ -16,7 +18,7 @@
                     </div>
                     <div class="product-price-btn">
                     <input type="number" min="0" class="form-control add-to-cart" placeholder="1" name="nuber_of_items">
-                        <button type="button" class="add_basket" id="<%= products[:id] %>"">Add</button>
+                        <button type="button" class="add_basket" id="<%= products[:id]%>">Add</button>
                     </div>
                 </div>
             </div>
@@ -30,23 +32,8 @@
 
 <script>
 
-$("button.add_basket").click(function(){ //Start function on add button click
-$.ajax({
-    url: "/basket",
-    type: "post",
-    data: {id: id}
-  })
-}
-
-  // id = $(this).attr("id")                //id variable is set to the id of buttton, which is set to the products id. $(this) selects the element that started the function
-  // $.ajax({                               //ajax sens a JSON without going to URL
-   // url: "/basket",
-   // type: "post",
-   // data: {product_id: id}
-  // }).done(function(data){                //.done ensures this happens after
-   // $("#basket").html("Basket: " + data.length); //Set content of the
- // });                                            //selected element (??)
- // event.preventDefault();               //prevents std link functionality
-});
+$("button").click(function(){
+            console.log(arguments);
+    });
 
 </script>

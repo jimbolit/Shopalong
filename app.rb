@@ -45,20 +45,27 @@ get "/breakfast" do
 end
 
 post '/basket' do
-  @thing = params["user_id"]
+  content_type :json
+  session[:basket] ||= []
+  session[:basket] << params[:product_id]
+  session[:basket].to_json
 end
 
 get '/basket' do
-  begin
-    @test = session[:basket]
-    @products = products_table.find(session[:basket])  #select from the Product table each of the products in the basket, and set equal to @products  
-rescue                          
- return erb "There are no items in your basket"
-end
-  erb :basket
+    puts params[:product_id]
+    puts "hello"
+    begin
+     @test = session[:basket].to_a
+     @products = products_table.find(session[:basket])
+    rescue
+        return erb "There are no items in your basket"
+    end
+    view "basket"
 end
 
-
+get '/test' do
+    view "test"
+end
 
 
 
