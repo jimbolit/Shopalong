@@ -59,7 +59,7 @@ get '/basket' do
      @products = products_table.where(id: session[:basket]).to_a
     
     end
-    view "basket"
+    erb :basket  
 end
 
 get '/test' do

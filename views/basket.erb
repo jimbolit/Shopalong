@@ -1,41 +1,88 @@
-<div class="shopping-cart">
-    <!-- Title -->
-    <div class="title">
-        Shopping Cart
-    </div>
-    
-    <!-- Product #1 -->
 
-<% for products in @products %>
-    <div class="item">
-        <div class="buttons">
-            <span class="delete-btn"></span>
-            <span class="like-btn"></span>
-        </div>
-    
-        <div class="image">
-            <img class="img-fluid" src="<%=products[:image]%>" alt="" />
-        </div>
-    
-        <div class="description">
-        <span><%=products[:name]%></span>
-        < <span></span>
-        <span><%=products[:amount]%></span>
-        </div>
-    
-        <div class="quantity">
-        <button class="plus-btn" type="button" name="button">
-            <img src="plus.svg" alt="" />
-        </button>
-        <input type="text" name="name" value="1">
-        <button class="minus-btn" type="button" name="button">
-            <img src="minus.svg" alt="" />
-        </button>
-        </div>
-    
-        <div class="total-price"><%=products[:price]%></div>
-    </div>
 
-<%end%>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">	
+        <link rel="stylesheet" href="/styles_checkout.css">
+        <link rel="stylesheet" type="text/css" href="/styles.css"/>
+	</head>
 
-</div>
+	<body>
+		<div class="container-fluid breadcrumbBox text-center">
+			<ol class="breadcrumb d-flex justify-content-center">
+				<li><a href="#">Review</a></li>
+				<li class="active"><a href="#">Order</a></li>
+				<li><a href="#">Payment</a></li>
+			</ol>
+		</div>
+		
+		<div class="container text-center">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="bigcart"></div>
+                    <h1>Your shopping cart</h1>
+                    <p>
+                        This is a free and <b><a href="http://tutorialzine.com/2014/04/responsive-shopping-cart-layout-twitter-bootstrap-3/" title="Read the article!">responsive shopping cart layout, made by Tutorialzine</a></b>. It looks nice on both desktop and mobile browsers. Try it by resizing your window (or opening it on your smartphone and pc).
+                    </p>
+                </div>
+
+                <div class="col-sm-7 text-left">
+                    <ul>
+                        <li class="row product-row list-inline columnCaptions">
+                            <span>QTY</span>
+                            <span>ITEM</span>
+                            <span>Price</span>
+                        </li>
+                        <li class="row product-row">
+                            <span class="quantity">1</span>
+                            <span class="itemName">Birthday Cake</span>
+                            <span class="price">$49.95</span>
+                            <span class="popbtn"><a class="arrow"></a></span>
+                        </li>
+                        <li class="row product-row">
+                            <span class="quantity">50</span>
+                            <span class="itemName">Party Cups</span>
+                            <span class="popbtn"><a class="arrow"></a></span>
+                            <span class="price">$5.00</span>
+                        </li>
+                        <li class="row product-row">
+                            <span class="quantity">20</span>
+                            <span class="itemName">Beer kegs</span>
+                            <span class="popbtn"><a class="arrow"></a></span>
+                            <span class="price">$919.99</span>				
+                        </li>
+                        <li class="row product-row">
+                            <span class="quantity">18</span>
+                            <span class="itemName">Pound of beef</span>
+                            <span class="popbtn"><a class="arrow"></a></span>
+                            <span class="price">$269.45</span>
+                        </li>
+                        <li class="row product-row">
+                            <span class="quantity">1</span>
+                            <span class="itemName">Bullet-proof vest</span>
+                            <span class="popbtn"  data-parent="#asd" data-toggle="collapse" data-target="#demo"><a class="arrow"></a></span>
+                            <span class="price">$450.00</span>				
+                        </li>
+                        <li class="row product-row totals">
+                            <span class="itemName">Total:</span>
+                            <span class="price">$1694.43</span>
+                            <span class="order"> <a class="text-center">ORDER</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+		</div>
+
+		<!-- The popover content -->
+
+		<div id="popover" style="display: none">
+			<a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+			<a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+		</div>
+		
+		<!-- JavaScript includes -->
+		<script src="/bootstrap.min.js"></script>
+		<script src="/customjs.js"></script>
+
+	</body>
+ 
