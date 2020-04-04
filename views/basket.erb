@@ -9,9 +9,11 @@
 
 	<body>
 		
+
     <h2> basket <%=@basket%> </h2>
     <h2> <%=@basket_ids%> </h2>
     <h2> product hash <%= @basket.find{|y| y[:product_id] == "1"}[:order_quantity] %></h2>
+
 
         <div class="container-fluid breadcrumbBox text-center">
 			<ol class="breadcrumb d-flex justify-content-center">
@@ -45,7 +47,7 @@
                         <li class="row product-row d-flex flex-row">
                             <span class="quantity"><%= quantity %></span>
                             <span class="itemName"> <%=products[:name]%></span>
-                            <span class="price">$<%= "%.2f" %  products[:price]%></span>
+                            <span class="price">$<%= "%.2f" %  (products[:price] * quantity.to_i) %></span>
                             <span class="popbtn"><a class="arrow"></a></span>
                         </li>
                         
