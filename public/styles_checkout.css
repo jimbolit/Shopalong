@@ -59,6 +59,10 @@ a:hover {
 	padding: 0 32px;
 }
 
+.row.cart-row{
+    margin-bottom: 140px;
+}
+
 /*-----------------------------------  
 	Logo and description 
 ----------------------------------- */
@@ -136,6 +140,7 @@ a:hover {
 .row.columnCaptions.product-row span:last-child{
 	float: right;
 	padding-right: 72px;
+    margin-left: auto;
 }
 
 
@@ -146,6 +151,8 @@ a:hover {
 	font-size :16px;
 	font-weight: bold;
 	padding-left:25px;
+    margin-right: auto;
+    word-spacing: 4px;
 }
 
 
@@ -186,6 +193,7 @@ a:hover {
 
 .totals{
 	background-color: #f2f6f9;
+    border-bottom: 1px solid lightgrey;
 }
 
 .totals span{

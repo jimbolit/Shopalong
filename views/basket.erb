@@ -10,64 +10,46 @@
 	<body>
 		<div class="container-fluid breadcrumbBox text-center">
 			<ol class="breadcrumb d-flex justify-content-center">
-				<li><a href="#">Review</a></li>
-				<li class="active"><a href="#">Order</a></li>
+				<li class="active"><a href="#">Review</a></li>
+				<li ><a href="#">Delivery Details</a></li>
 				<li><a href="#">Payment</a></li>
 			</ol>
 		</div>
 		
 		<div class="container text-center">
-            <div class="row">
+            <div class="row cart-row">
                 <div class="col-sm-5">
                     <div class="bigcart"></div>
                     <h1>Your shopping cart</h1>
                     <p>
-                        This is a free and <b><a href="http://tutorialzine.com/2014/04/responsive-shopping-cart-layout-twitter-bootstrap-3/" title="Read the article!">responsive shopping cart layout, made by Tutorialzine</a></b>. It looks nice on both desktop and mobile browsers. Try it by resizing your window (or opening it on your smartphone and pc).
+                        Please review your cart, and when your happy, press the Continue button. Don't worry, you can still come back if you change your mind
                     </p>
                 </div>
 
                 <div class="col-sm-7 text-left">
                     <ul>
-                        <li class="row product-row list-inline columnCaptions">
+                        <li class="row product-row list-inline columnCaptions d-flex flex-row">
                             <span>QTY</span>
                             <span>ITEM</span>
                             <span>Price</span>
                         </li>
-                        <li class="row product-row">
+
+                        <% for products in @products %>
+                        
+                        <li class="row product-row d-flex flex-row">
                             <span class="quantity">1</span>
-                            <span class="itemName">Birthday Cake</span>
-                            <span class="price">$49.95</span>
+                            <span class="itemName"> <%=products[:name]%></span>
+                            <span class="price">$<%= "%.2f" %  products[:price]%></span>
                             <span class="popbtn"><a class="arrow"></a></span>
                         </li>
-                        <li class="row product-row">
-                            <span class="quantity">50</span>
-                            <span class="itemName">Party Cups</span>
-                            <span class="popbtn"><a class="arrow"></a></span>
-                            <span class="price">$5.00</span>
-                        </li>
-                        <li class="row product-row">
-                            <span class="quantity">20</span>
-                            <span class="itemName">Beer kegs</span>
-                            <span class="popbtn"><a class="arrow"></a></span>
-                            <span class="price">$919.99</span>				
-                        </li>
-                        <li class="row product-row">
-                            <span class="quantity">18</span>
-                            <span class="itemName">Pound of beef</span>
-                            <span class="popbtn"><a class="arrow"></a></span>
-                            <span class="price">$269.45</span>
-                        </li>
-                        <li class="row product-row">
-                            <span class="quantity">1</span>
-                            <span class="itemName">Bullet-proof vest</span>
-                            <span class="popbtn"  data-parent="#asd" data-toggle="collapse" data-target="#demo"><a class="arrow"></a></span>
-                            <span class="price">$450.00</span>				
-                        </li>
-                        <li class="row product-row totals">
+                        
+                        <%end%>
+                        
+                        <li class="row totals">
                             <span class="itemName">Total:</span>
                             <span class="price">$1694.43</span>
-                            <span class="order"> <a class="text-center">ORDER</a></span>
-                        </li>
+                            <span class="order"> <a class="text-center">Continue</a></span>
+					    </li>
                     </ul>
                 </div>
             </div>

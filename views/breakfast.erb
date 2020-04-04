@@ -17,13 +17,12 @@
                          <p>$<span><%="%.2f" % products[:price]%></span></p>
                     </div>
                     <div class="product-price-btn">
-                    <input type="number" min="0" class="form-control add-to-cart" placeholder="1" name="nuber_of_items">
+                    <input type="number" min="0" class="form-control add-to-cart" placeholder="0" name="quantity" id="<%=products[:id]%>_quantity">
                         <button type="button" class="add_basket" id="<%= products[:id]%>">Add</button>
                     </div>
                 </div>
             </div>
     </div>
-    
 <% end %>
 
 </div>
@@ -34,11 +33,13 @@
 
     $("button").click(function(){
         id = $(this).attr("id");
-        console.log(id);
+        id_quantity = ''.concat(id, "_quantity");
+        quantity = document.getElementById(id_quantity).value;
+        console.log(id, id_quantity, quantity);
         $.ajax({
             type: "post",
             url: "/basket",
-            data: { product_id: id},
+            data: { product_id: id, order_quantity: quantity},
             success: function(){
                 console.log("success")
             },
