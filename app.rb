@@ -45,6 +45,9 @@ get "/breakfast" do
 end
 
 post '/basket' do
+ 
+#  sort this out withy https://github.com/howardmann/Tutorials/blob/master/Rails_Shopping_Cart.md for cart management
+ 
   content_type :json
   session[:basket] ||= []
   session[:basket] << {:product_id => params[:product_id], :order_quantity => params[:order_quantity]}
@@ -52,14 +55,16 @@ post '/basket' do
 end
 
 get '/basket' do
-    puts session[:basket]
-    puts "hello"
-    begin
-     @basket = session[:basket]
-     basket_ids = session[:basket].map {|x| x.values[0]}
-     @products = products_table.where(id: basket_ids).to_a
-     
-    
+        puts session[:basket]
+        puts "hello"
+        begin
+            @basket = session[:basket]
+            basket_ids = session[:basket].map {|x| x.values[0]}
+            @products = products_table.where(id: basket_ids).to_a
+        end  
+        sum = 0
+        @sub_total = @basket.each do |line_item|
+            sum+= (line_item[:order_quantity].to_i * products_table.where(id: line_item[:product_id])[:price])
     end
     erb :basket  
 end
