@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">	
         <link rel="stylesheet" href="/styles_checkout.css">
-        <link rel="stylesheet" type="text/css" href="/styles.css"/>
+        
 	</head>
 
 	<body>
@@ -12,8 +12,8 @@
         <div class="container-fluid breadcrumbBox text-center">
 			<ol class="breadcrumb d-flex justify-content-center">
 				<li class="active"><a href="#">Review</a></li>
-				<li ><a href="#">Delivery Details</a></li>
-				<li><a href="#">Payment</a></li>
+				<li ><a>Delivery Details</a></li>
+				<li><a>Payment</a></li>
 			</ol>
 		</div>
 		
@@ -50,7 +50,7 @@
                         <li class="row totals">
                             <span class="itemName">Total:</span>
                             <span class="price">$<%="%.2f" %  @sub_total%> </span>
-                            <span class="order"> <a class="text-center">Continue</a></span>
+                            <span class="order"> <a class="text-center" href='/delivery-details'>Continue</a></span>
 					    </li>
                     </ul>
                 </div>

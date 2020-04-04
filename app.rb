@@ -70,6 +70,44 @@ get '/basket' do
     erb :basket  
 end
 
+get '/delivery-details' do
+    begin
+     @basket = session[:basket]
+     basket_ids = session[:basket].map {|x| x.values[0]}
+     @products = products_table.where(id: basket_ids).to_a
+    
+     @sub_total = 0
+     @products.each{
+         |i| @sub_total = @sub_total + i[:price] * @basket.find{
+             |y| y[:product_id] == i[:id]
+             }[:order_quantity]
+     }
+    
+    end  
+
+    view "delivery_details"
+end
+
+
+get '/payment' do
+    begin
+     @basket = session[:basket]
+     basket_ids = session[:basket].map {|x| x.values[0]}
+     @products = products_table.where(id: basket_ids).to_a
+    
+     @sub_total = 0
+     @products.each{
+         |i| @sub_total = @sub_total + i[:price] * @basket.find{
+             |y| y[:product_id] == i[:id]
+             }[:order_quantity]
+     }
+    
+    end  
+
+    view "payment"
+end
+
+
 get '/test' do
     view "test"
 end
