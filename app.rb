@@ -51,7 +51,7 @@ post '/basket' do
   content_type :json
   session[:basket] ||= []
   session[:basket] << {:product_id => params[:product_id], :order_quantity => params[:order_quantity]}
-  session[:basket].to_json
+  session[:basket].to_a
 end
 
 get '/basket' do
@@ -63,9 +63,8 @@ get '/basket' do
             @products = products_table.where(id: basket_ids).to_a
         end  
         sum = 0
-        @sub_total = @basket.each do |line_item|
-            sum+= (line_item[:order_quantity].to_i * products_table.where(id: line_item[:product_id])[:price])
-    end
+        ## @sub_total = @basket.each do |line_item|
+        ##    sum+= (line_item[:order_quantity].to_i * products_table.where(id: line_item[:product_id])[:price])
     erb :basket  
 end
 
