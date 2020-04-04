@@ -8,10 +8,6 @@
 	</head>
 
 	<body>
-		
-    <h2> <%=@basket%> </h2>
-    <h2> <%=@basket_ids%> </h2>
-    <h2> product hash <%= @basket.find{|y| y[:product_id] == "1"}[:order_quantity] %></h2>
 
         <div class="container-fluid breadcrumbBox text-center">
 			<ol class="breadcrumb d-flex justify-content-center">
@@ -40,12 +36,12 @@
                         </li>
 
                         <% for products in @products %>
-                        <% quantity = @basket.find{|y| y[:product_id] == products[:id].to_s}[:order_quantity]%>
+                        <% quantity = @basket.find{|y| y[:product_id] == products[:id]}[:order_quantity]%>
                         
                         <li class="row product-row d-flex flex-row">
                             <span class="quantity"><%= quantity %></span>
                             <span class="itemName"> <%=products[:name]%></span>
-                            <span class="price">$<%= "%.2f" %  products[:price]%></span>
+                            <span class="price">$<%= "%.2f" %  (products[:price] * quantity) %></span>
                             <span class="popbtn"><a class="arrow"></a></span>
                         </li>
                         
@@ -53,7 +49,7 @@
                         
                         <li class="row totals">
                             <span class="itemName">Total:</span>
-                            <span class="price">$1694.43</span>
+                            <span class="price">$<%="%.2f" %  @sub_total%> </span>
                             <span class="order"> <a class="text-center">Continue</a></span>
 					    </li>
                     </ul>

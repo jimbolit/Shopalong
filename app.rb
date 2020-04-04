@@ -47,7 +47,7 @@ end
 post '/basket' do
   content_type :json
   session[:basket] ||= []
-  session[:basket] << {:product_id => params[:product_id], :order_quantity => params[:order_quantity]}
+  session[:basket] << {:product_id => params[:product_id].to_i, :order_quantity => params[:order_quantity].to_i}
   session[:basket].to_json
 end
 
@@ -58,7 +58,13 @@ get '/basket' do
      @basket = session[:basket]
      basket_ids = session[:basket].map {|x| x.values[0]}
      @products = products_table.where(id: basket_ids).to_a
-     
+    
+     @sub_total = 0
+     @products.each{
+         |i| @sub_total = @sub_total + i[:price] * @basket.find{
+             |y| y[:product_id] == i[:id]
+             }[:order_quantity]
+     }
     
     end
     erb :basket  
