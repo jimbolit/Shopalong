@@ -9,7 +9,7 @@
 
 	<body>
 		
-    <h2> <%=@basket%> </h2>
+    <h2> basket <%=@basket%> </h2>
     <h2> <%=@basket_ids%> </h2>
     <h2> product hash <%= @basket.find{|y| y[:product_id] == "1"}[:order_quantity] %></h2>
 
