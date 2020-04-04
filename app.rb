@@ -47,7 +47,7 @@ end
 post '/basket' do
   content_type :json
   session[:basket] ||= []
-  session[:basket] << {:product_id => params[:product_id], :order_quantity => params[:order_id]}
+  session[:basket] << {:product_id => params[:product_id], :order_quantity => params[:order_quantity]}
   session[:basket].to_json
 end
 
@@ -55,8 +55,10 @@ get '/basket' do
     puts session[:basket]
     puts "hello"
     begin
-     @test = session[:basket]
-     @products = products_table.where(id: session[:basket][0][:product_id]).to_a
+     @basket = session[:basket]
+     basket_ids = session[:basket].map {|x| x.values[0]}
+     @products = products_table.where(id: basket_ids).to_a
+     
     
     end
     erb :basket  

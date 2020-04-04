@@ -34,7 +34,7 @@
     $("button").click(function(){
         id = $(this).attr("id");
         id_quantity = ''.concat(id, "_quantity");
-        quantity = document.getElementById(id_quantity).value;
+        quantity = parseInt(document.getElementById(id_quantity).value, 10);
         console.log(id, id_quantity, quantity);
         $.ajax({
             type: "post",
