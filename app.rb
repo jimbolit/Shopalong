@@ -82,9 +82,7 @@ get '/delivery-details' do
              |y| y[:product_id] == i[:id]
              }[:order_quantity]
      }
-    
     end  
-
     view "delivery_details"
 end
 
@@ -100,10 +98,8 @@ get '/payment' do
          |i| @sub_total = @sub_total + i[:price] * @basket.find{
              |y| y[:product_id] == i[:id]
              }[:order_quantity]
-     }
-    
+     }    
     end  
-
     view "payment"
 end
 
