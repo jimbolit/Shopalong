@@ -41,8 +41,8 @@ get "/categories" do
     view "categories"
 end
 
-get "/category" do
-    @products = products_table.where(category_id: 1).to_a
+get "/category/:id" do
+    @products = products_table.where(category_id: params[ :id]).to_a
     view "products"
 end
 
