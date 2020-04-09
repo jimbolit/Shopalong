@@ -33,7 +33,13 @@ end
 DB.create_table! :orders do
   primary_key :id
   foreign_key :user_id
+  foreign_key :orders_products_id
   String  :address
+  String :first_name
+  String :last_name
+  String :email
+  String :phone_number
+  String :addr
   Timestamp :timestamp
 end
 DB.create_table! :orders_products do

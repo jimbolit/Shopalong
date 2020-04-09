@@ -105,8 +105,13 @@ post '/payment' do
     session[:last_name] = params[:last_name]
     session[:email] = params[:email]
     session[:phone_number] = params[:phone_number]
-    session[:address] = params[:address]
 
+
+
+
+
+
+    
     @address = params[:address]
 
      @basket = session[:basket]
@@ -130,6 +135,11 @@ get '/delivery-confirmation' do
         orders_products_table.insert(order_id: 1,
                            product_id: products[:product_id],
                            product_id: products[:order_quantity])
+
+        orders_products_table.insert(order_id: 1,
+                                product_id: products[:product_id],
+                                product_id: products[:order_quantity])
+
         end
     end
     session[:basket]=[]
