@@ -24,6 +24,7 @@ DB.create_table! :users do
 end
 DB.create_table! :products do
   primary_key :id
+  foreign_key :category_id
   String :name
   String :amount
   String :category 
@@ -41,11 +42,18 @@ DB.create_table! :orders_products do
   foreign_key :order_id
   foreign_key :product_id
 end
+DB.create_table! :categories do
+  primary_key :id
+  String :name
+  String :image
+end
+
 
 # Insert initial (seed) data
 lists_table = DB.from(:lists)
 users_table = DB.from(:users)
 products_table = DB.from(:products)
+categories_table = DB.from(:categories)
 
 lists_table.insert( 
                     date_posted: "March 25 2020",
@@ -86,35 +94,40 @@ products_table.insert(name: "Meadow Fresh Uht Milk Standard Long Life 1L",
                     amount: "1L",
                     category: "breakfast",
                     image: "mf_uht_std_1l.jpg",
-                    price: 2.89
+                    price: 2.89,
+                    category_id: 1
                     )
 
 products_table.insert(name: "Sanitarium Weetbix Wheat Biscuits", 
                     amount: "1.2Kg",
                     category: "breakfast",
                     image: "weetbix12kg.jpg",
-                    price: 7.60
+                    price: 7.60,
+                    category_id: 1
                     )
 
 products_table.insert(name: "Sanitarium Skippy Cornflakes", 
                     amount: "1L",
                     category: "breakfast",
                     image: "skippycornflakes500g.jpg",
-                    price: 4.30
+                    price: 4.30,
+                    category_id: 1
                     )
 
 products_table.insert(name: "Golden Crumpets Rounds 300g", 
                     amount: "300g",
                     category: "breakfast",
                     image: "goldencrumpets.jpg",
-                    price: 2.20
+                    price: 2.20,
+                    category_id: 1
                     )
 
 products_table.insert(name: "Sanitarium Marmite Yeast Spread", 
                     amount: "500g",
                     category: "breakfast",
                     image: "marmite500.jpg",
-                    price: 7.29
+                    price: 7.29,
+                    category_id: 1
                     )
 
 products_table.insert(name: "Kelloggs Nutrigrain Cereal
@@ -122,13 +135,46 @@ Volume 805g",
                     amount: "805g",
                     category: "breakfast",
                     image: "nutrigrain805.jpg",
-                    price: 10.00
+                    price: 10.00,
+                    category_id: 1
                     )
 
 products_table.insert(name: "Frenz Free Range Eggs Dozen Mixed Grade", 
                     amount: "12pk",
                     category: "breakfast",
                     image: "frenzmed12.jpg",
-                    price: 8.99
+                    price: 8.99,
+                    category_id: 1
                     )
+
+categories_table.insert(
+                        name: "Breakfast",
+                        image: "breakfast.jpg"
+                    )
+
+categories_table.insert(name: "Lunch",
+                        image: "lunchsam.jpg"
+                    )
+ 
+categories_table.insert(name: "Dinner Ingredients",
+                        image: "dinner.jpg"
+                    )
+
+categories_table.insert(name: "Kitchen Essentials",
+                        image: "lunchsam.jpg"
+                    )
+
+categories_table.insert(name: "Non-Food",
+                        image: "toiletpaper.jpg"
+                    )
+ 
+categories_table.insert(name: "Pharmacy",
+                        image: "pharmacy.jpg"
+                    )
+ 
+ 
+
+ 
+
+
 

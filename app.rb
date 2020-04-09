@@ -19,6 +19,7 @@ after { puts; }
 lists_table = DB.from(:lists)
 users_table = DB.from(:users)
 products_table = DB.from(:products)
+categories_table = DB.from( :categories)
 
 # Twilio API credentials and connection
     account_sid = ENV["twilio_sid"]
@@ -36,12 +37,13 @@ get "/" do
 end
 
 get "/categories" do
+    @categories = categories_table.to_a
     view "categories"
 end
 
-get "/breakfast" do
-    @breakfasts = products_table.where(category: "breakfast").to_a
-    view "breakfast"
+get "/category/:id" do
+    @products = products_table.where(category_id: params[ :id]).to_a
+    view "products"
 end
 
 post '/basket' do
