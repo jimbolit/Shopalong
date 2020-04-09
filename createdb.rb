@@ -27,7 +27,6 @@ DB.create_table! :products do
   foreign_key :category_id
   String :name
   String :amount
-  String :category 
   String :image
   Decimal :price
 end
@@ -92,7 +91,6 @@ users_table.insert(name: "Jacinda Ardern",
 
 products_table.insert(name: "Meadow Fresh Uht Milk Standard Long Life 1L", 
                     amount: "1L",
-                    category: "breakfast",
                     image: "mf_uht_std_1l.jpg",
                     price: 2.89,
                     category_id: 1
@@ -100,7 +98,6 @@ products_table.insert(name: "Meadow Fresh Uht Milk Standard Long Life 1L",
 
 products_table.insert(name: "Sanitarium Weetbix Wheat Biscuits", 
                     amount: "1.2Kg",
-                    category: "breakfast",
                     image: "weetbix12kg.jpg",
                     price: 7.60,
                     category_id: 1
@@ -108,7 +105,6 @@ products_table.insert(name: "Sanitarium Weetbix Wheat Biscuits",
 
 products_table.insert(name: "Sanitarium Skippy Cornflakes", 
                     amount: "1L",
-                    category: "breakfast",
                     image: "skippycornflakes500g.jpg",
                     price: 4.30,
                     category_id: 1
@@ -116,7 +112,6 @@ products_table.insert(name: "Sanitarium Skippy Cornflakes",
 
 products_table.insert(name: "Golden Crumpets Rounds 300g", 
                     amount: "300g",
-                    category: "breakfast",
                     image: "goldencrumpets.jpg",
                     price: 2.20,
                     category_id: 1
@@ -124,7 +119,6 @@ products_table.insert(name: "Golden Crumpets Rounds 300g",
 
 products_table.insert(name: "Sanitarium Marmite Yeast Spread", 
                     amount: "500g",
-                    category: "breakfast",
                     image: "marmite500.jpg",
                     price: 7.29,
                     category_id: 1
@@ -133,7 +127,6 @@ products_table.insert(name: "Sanitarium Marmite Yeast Spread",
 products_table.insert(name: "Kelloggs Nutrigrain Cereal
 Volume 805g", 
                     amount: "805g",
-                    category: "breakfast",
                     image: "nutrigrain805.jpg",
                     price: 10.00,
                     category_id: 1
@@ -141,11 +134,67 @@ Volume 805g",
 
 products_table.insert(name: "Frenz Free Range Eggs Dozen Mixed Grade", 
                     amount: "12pk",
-                    category: "breakfast",
                     image: "frenzmed12.jpg",
                     price: 8.99,
                     category_id: 1
                     )
+
+products_table.insert(name: "Molenberg Toast Bread Original", 
+                    amount: "700g",
+                    image: "Molenberg-Toast-Bread-Original.jpg",
+                    price: 3.40,
+                    category_id: 2
+                    )
+
+products_table.insert(name: "Best Foods Mayonnaise Real 405g", 
+                    amount: "405g",
+                    image: "best-foods-mayonnase-405.jpg",
+                    price: 5.00,
+                    category_id: 2
+                    )
+
+products_table.insert(name: "San Remo Pasta Spaghetti pkt", 
+                    amount: "500g",
+                    image: "san-remo-spaghetti.jpg",
+                    price: 3.99,
+                    category_id: 3
+                    )
+
+products_table.insert(name: "Wattie's Pasta Sauce Traditional Garlic", 
+                    amount: "420g",
+                    image: "watties-tomato-sauce-garlic.jpg",
+                    price: 2.50,
+                    category_id: 3
+                    )
+
+products_table.insert(name: "Olivani Olive Oil Pure 1l", 
+                    amount: "1L",
+                    image: "olivani-olive-oil.jpg",
+                    price: 13.00,
+                    category_id: 4
+                    )
+
+products_table.insert(name: "Cerebos Salt Iodised Table Drum 300g", 
+                    amount: "300g",
+                    image: "cerebos-salt.jpg",
+                    price: 1.69,
+                    category_id: 4
+                    )
+
+products_table.insert(name: "Quilton Toilet Paper 18pk White Unscented", 
+                    amount: "18pk",
+                    image: "quilton-toilet-paper-18.jpg",
+                    price: 10.99,
+                    category_id: 5
+                    )
+
+products_table.insert(name: "Handee Paper Towels White 2pk", 
+                    amount: "2pk",
+                    image: "handee-paper-towels.jpg",
+                    price: 3.50,
+                    category_id: 5
+                    )
+
 
 categories_table.insert(
                         name: "Breakfast",
@@ -161,7 +210,7 @@ categories_table.insert(name: "Dinner Ingredients",
                     )
 
 categories_table.insert(name: "Kitchen Essentials",
-                        image: "lunchsam.jpg"
+                        image: "essentials.jpg"
                     )
 
 categories_table.insert(name: "Non-Food",

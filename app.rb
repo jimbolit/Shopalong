@@ -46,6 +46,12 @@ get "/category/:id" do
     view "products"
 end
 
+get "/breakfast" do
+    @products = products_table.where(category: "breakfast").to_a
+    view "products"
+end
+
+
 post '/basket' do
   content_type :json
   session[:basket] ||= []
@@ -54,8 +60,6 @@ post '/basket' do
 end
 
 get '/basket' do
-    puts session[:basket]
-    puts "hello"
     begin
      @basket = session[:basket]
      basket_ids = session[:basket].map {|x| x.values[0]}
@@ -67,9 +71,12 @@ get '/basket' do
              |y| y[:product_id] == i[:id]
              }[:order_quantity]
      }
-    
     end
-    erb :basket  
+     if @basket == []
+        view "basket_empty"
+     else
+        view "basket"  
+     end
 end
 
 get '/delivery-details' do

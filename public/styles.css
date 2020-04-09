@@ -64,7 +64,7 @@ img.blur {
     cursor: pointer;
     padding: 25px 80px;
     display: inline-block;
-    margin: 80px 30px;
+    margin: 30px 30px;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
@@ -73,6 +73,7 @@ img.blur {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
+    min-width: 340px;
 }
 
 .startbtn:after {
@@ -170,6 +171,10 @@ background-color: blue;
 
 /* Icons */
 
+.icon-heart:before {
+    content: "\f004";
+}
+
 .icon-cart:before {
     content: "\f07a";
 }
@@ -179,7 +184,11 @@ background-color: blue;
 }
 
 .spacer {
-    min-height: 170px
+    margin-bottom: 100px
+}
+
+.spacer h5{
+    max-width: 280px;
 }
 
 .order-col{
