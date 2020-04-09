@@ -5,7 +5,7 @@
 
 body{
 	font-size : 14px;
-	background-color: #f2f6f9;
+	background-color: #f6fdf2;
 }
 
 ul{
@@ -22,13 +22,13 @@ a:hover {
 -----------------------------------*/
 
 .breadcrumb > .active a{
-	color: #468595;
+	color: #28a745;
 	font-weight: bold;
 	text-transform: uppercase;
 }
 
 .breadcrumb li a{
-	color :#b3d4dc;
+	color :#a0c28e;
 	font-weight: bold;
 	text-transform: uppercase;
     margin: 0px 10px 0px 10px;
@@ -40,12 +40,12 @@ a:hover {
 
 .breadcrumb{
 	margin-bottom: 100px;
-	background-color: #dde6ed;
+	background-color: #f6fdf2;
     display: ;
 }
 
 .breadcrumbBox{
-	background-color: #dde6ed;
+	background-color: #f6fdf2;
 	height: 100px;
 	margin-bottom: 100px;
 	padding-top: 32px;
@@ -126,7 +126,7 @@ a:hover {
 	text-transform: uppercase;
 	padding: 0;
 	box-shadow: 0 0 0;
-	background-color: #f2f6f9;
+	background-color: #f6fdf2;
 }
 
 .row.columnCaptions.product-row span:first-child{
@@ -157,7 +157,7 @@ a:hover {
 
 
 .quantity{	
-	color: #4ea6bc;
+	color: #a0c28e;
 	font-size :18px;
 	font-weight: bold;
 	width: 42px;
@@ -166,7 +166,7 @@ a:hover {
 
 
 .popbtn{
-	background-color: #e6edf3;
+	background-color: #edfae5;
 	margin-left: 25px;
 	height: 63px;
 	width: 40px;
@@ -183,7 +183,7 @@ a:hover {
 }
 
 .price{
-	color: #f06953;
+	color: #28a745;
 	font-size :18px;
 	font-weight: bold;
 }
@@ -192,7 +192,7 @@ a:hover {
 /* Totals */
 
 .totals{
-	background-color: #f2f6f9;
+	background-color: #f6fdf2;
     border-bottom: 1px solid lightgrey;
 }
 
@@ -217,7 +217,14 @@ a:hover {
 }
 
 .order a{
-	background-color: #f08573;
+	background-color: #28a745;
+	color: #fbfffa;
+	font-weight: bold;
+	border-radius: 2px;
+	padding: 20px 30px;
+}
+.order button{
+	background-color: #28a745;
 	color: #fbfffa;
 	font-weight: bold;
 	border-radius: 2px;

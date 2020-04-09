@@ -88,7 +88,11 @@ img.blur {
 /* other buttons */
 
 .startbtn.submit {
-background-color: blue;
+	background-color: #28a745;
+	color: #fbfffa;
+	font-weight: bold;
+	border-radius: 2px;
+	padding: 20px 30px;
 }
 
 .startbtn.checkout {
@@ -391,7 +395,7 @@ background-color: blue;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: #ffffff;
-  background-color: #9cebd5;
+  background-color: #61a871;
   cursor: pointer;
   outline: none;
 }

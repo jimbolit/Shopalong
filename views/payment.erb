@@ -1,7 +1,7 @@
 	<head>
         <link rel="stylesheet" href="/styles_checkout.css">
 	</head>      
-      
+
       <div class="container-fluid breadcrumbBox text-center">
 			<ol class="breadcrumb d-flex justify-content-center">
 				<li><a href='/basket'>Review</a></li>
@@ -108,8 +108,10 @@
 
 
             <hr class="mb-4">
-           <a href='/payment'> <button class="btn btn-primary btn-lg btn-block" type="submit">Pay and submit order</button> </a>
-          </form>
+            <span class="order">
+                <a href='/delivery-confirmation' class="text-center btn-lg btn-block" id="submit" type="submit">Pay and submit order </a>
+            </span>
+            </form>
         </div>
 
       </div>
@@ -126,12 +128,7 @@
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-   
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/vendor/holder.min.js"></script>
+  
     <script>
       // Example starter JavaScript for disabling form submissions if there are invalid fields
       (function() {
@@ -154,3 +151,6 @@
         }, false);
       })();
     </script>
+    
+    </body>
+

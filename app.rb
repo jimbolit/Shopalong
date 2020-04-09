@@ -20,6 +20,7 @@ lists_table = DB.from(:lists)
 users_table = DB.from(:users)
 products_table = DB.from(:products)
 categories_table = DB.from( :categories)
+orders_products_table = DB.from( :orders_products)
 
 # Twilio API credentials and connection
     account_sid = ENV["twilio_sid"]
@@ -96,8 +97,18 @@ get '/delivery-details' do
 end
 
 
-get '/payment' do
+post '/payment' do
     begin
+     
+    session[:address] = params[:address]
+    session[:first_name] = params[:first_name]
+    session[:last_name] = params[:last_name]
+    session[:email] = params[:email]
+    session[:phone_number] = params[:phone_number]
+    session[:address] = params[:address]
+
+    @address = params[:address]
+
      @basket = session[:basket]
      basket_ids = session[:basket].map {|x| x.values[0]}
      @products = products_table.where(id: basket_ids).to_a
@@ -112,6 +123,18 @@ get '/payment' do
     view "payment"
 end
 
+get '/delivery-confirmation' do
+    begin
+        @basket = session[:basket]
+        for products in @basket
+        orders_products_table.insert(order_id: 1,
+                           product_id: products[:product_id],
+                           product_id: products[:order_quantity])
+        end
+    end
+    session[:basket]=[]
+    view "delivery_confirmation"
+end
 
 get '/test' do
     view "test"
