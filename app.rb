@@ -21,6 +21,7 @@ users_table = DB.from(:users)
 products_table = DB.from(:products)
 categories_table = DB.from( :categories)
 orders_products_table = DB.from( :orders_products)
+orders_table = DB.from( :orders)
 
 # Twilio API credentials and connection
     account_sid = ENV["twilio_sid"]
@@ -32,6 +33,7 @@ orders_products_table = DB.from( :orders_products)
 before do
     @current_user = users_table.where(id: session["user_id"]).to_a[0]
 end
+
 
 get "/" do
     view "welcome"
@@ -106,14 +108,6 @@ post '/payment' do
     session[:email] = params[:email]
     session[:phone_number] = params[:phone_number]
 
-
-
-
-
-
-    
-    @address = params[:address]
-
      @basket = session[:basket]
      basket_ids = session[:basket].map {|x| x.values[0]}
      @products = products_table.where(id: basket_ids).to_a
@@ -130,20 +124,35 @@ end
 
 get '/delivery-confirmation' do
     begin
+        begin
+            # need to link up order_id
+            current_order = orders_table.insert( user_id: @current_user[:id],
+                                address: session[:address],
+                                first_name: session[:first_name],
+                                last_name: session[:last_name],
+                                email: session[:email],
+                                phone_number: session[:phone_number]
+                                )
+
+            @current_order_details = orders_table.where(id: current_order).to_a
+        end
         @basket = session[:basket]
         for products in @basket
-        orders_products_table.insert(order_id: 1,
-                           product_id: products[:product_id],
-                           product_id: products[:order_quantity])
-
-        orders_products_table.insert(order_id: 1,
-                                product_id: products[:product_id],
-                                product_id: products[:order_quantity])
-
+            orders_products_table.insert(order_id: @current_order_details[0][:id],
+                            product_id: products[:product_id],
+                            order_quantity: products[:order_quantity])
         end
     end
+    @basket = []
     session[:basket]=[]
+    session[:address]=[]
+    session[:first_name]=[]
+    session[:last_name]=[]
+    session[:email]=[]
+    session[:phone_number]=[]
     view "delivery_confirmation"
+
+    # next step is to enable adding and subtracting items
 end
 
 get '/test' do

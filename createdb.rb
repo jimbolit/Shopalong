@@ -33,19 +33,18 @@ end
 DB.create_table! :orders do
   primary_key :id
   foreign_key :user_id
-  foreign_key :orders_products_id
   String  :address
   String :first_name
   String :last_name
   String :email
   String :phone_number
-  String :addr
   Timestamp :timestamp
 end
 DB.create_table! :orders_products do
   primary_key :id
   foreign_key :order_id
   foreign_key :product_id
+  Intiger :order_quantity
 end
 DB.create_table! :categories do
   primary_key :id
