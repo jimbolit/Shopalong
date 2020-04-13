@@ -99,6 +99,35 @@ img.blur {
 background-color: blue;
 }
 
+.buttonSpacer {
+    margin-top: 20px;
+}
+
+.back {
+	background-color: #28a745;
+	color: #fbfffa;
+	font-weight: bold;
+	border-radius: 2px;
+	padding: 15px 15px 15px 15px;
+    line-height: 50px;
+    border-radius: 5px;
+}
+
+.order a{
+	background-color: #28a745;
+	color: #fbfffa;
+	font-weight: bold;
+	border-radius: 2px;
+	padding: 20px 30px;
+}
+.order button{
+	background-color: #28a745;
+	color: #fbfffa;
+	font-weight: bold;
+	border-radius: 2px;
+	padding: 20px 30px;
+}
+
 
 /* Pseudo elements for icons */
 .startbtn:before {

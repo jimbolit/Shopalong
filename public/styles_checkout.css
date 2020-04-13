@@ -47,7 +47,7 @@ a:hover {
 .breadcrumbBox{
 	background-color: #f6fdf2;
 	height: 100px;
-	margin-bottom: 100px;
+	margin-bottom: 10px;
 	padding-top: 32px;
 }
 
@@ -215,22 +215,6 @@ a:hover {
 	padding-left: 5px;
 	cursor: pointer;
 }
-
-.order a{
-	background-color: #28a745;
-	color: #fbfffa;
-	font-weight: bold;
-	border-radius: 2px;
-	padding: 20px 30px;
-}
-.order button{
-	background-color: #28a745;
-	color: #fbfffa;
-	font-weight: bold;
-	border-radius: 2px;
-	padding: 20px 30px;
-}
-
 
 /* Popovers */
 

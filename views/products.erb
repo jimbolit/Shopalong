@@ -1,14 +1,16 @@
 
 
 <div class = "container">
+<div class="buttonSpacer">
+    <a class="back text-center" href='/categories'> Back to all categories </a>
+</div>
     <div class= "row">
 
     <% for products in @products %>
-    <% cart_quantity = @basket.find{|y| y[:product_id] == products[:id]}[:order_quantity]%>
-    <% if cart_quntity == []%>
-    <% quantity == 0 %>
-    <% else>
-    <% quantity == cart_quantity>
+    <% if defined?(@basket.find{|y| y[:product_id] == products[:id]}[:order_quantity]) == nil %>
+    <% quantity = 0 %>
+    <% else %>
+    <% quantity = @basket.find{|y| y[:product_id] == products[:id]}[:order_quantity] %>
     <% end %>
 
     <div class = "col-md-3">      
