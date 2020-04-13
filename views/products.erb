@@ -16,9 +16,10 @@
                         <h2><%=products[:amount]%> </h2>
                          <p>$<span><%="%.2f" % products[:price]%></span></p>
                     </div>
-                    <div class="product-price-btn">
-                    <input type="number" min="0" class="form-control add-to-cart" placeholder="0" name="quantity" id="<%=products[:id]%>_quantity">
-                        <button type="button" class="add_basket" id="<%= products[:id]%>">Add</button>
+                    <div class="product-price-btn d-flex">
+                    <p type="text" min="0" class="form-control add-to-cart mr-auto" name="quantity" id="<%=products[:id]%>_quantity">0</p>
+                        <button type="button" class="add_basket mr-2" onclick = "addQuantity(this.dataset.id)" name="add" data-id="<%= products[:id]%>"> + </button>
+                        <button type="button" class="add_basket mr-3" onclick = "subQuantity(this.dataset.id)"name="subtract" data-id="<%= products[:id]%>"> — </button>
                     </div>
                 </div>
             </div>
@@ -30,16 +31,12 @@
 <!-- Javascript -->
 
 <script>
-
-    $("button").click(function(){
-        id = $(this).attr("id");
-        id_quantity = ''.concat(id, "_quantity");
-        quantity = parseInt(document.getElementById(id_quantity).value, 10);
-        console.log(id, id_quantity, quantity);
+   
+    function sendQuantity(){
         $.ajax({
             type: "post",
             url: "/basket",
-            data: { product_id: id, order_quantity: quantity},
+            data: { product_id: id, order_quantity: current_quantity},
             success: function(){
                 console.log("success")
             },
@@ -47,6 +44,31 @@
                 console.log(arguments);
             }
         });
-    });
+        console.log(current_quantity, id_quantity);
+    }
+   
+    function setVariables(dataId){
+        id = parseInt(dataId, 10)
+        id_quantity = ''.concat(id, "_quantity");
+        current_quantity = parseInt(document.getElementById(id_quantity).innerHTML, 10);
+    }
 
+    function updateInput(){
+        document.getElementById(id_quantity).innerHTML = current_quantity; 
+    }
+
+    function addQuantity(dataId){
+            setVariables(dataId);
+            current_quantity++;
+            updateInput(); 
+            sendQuantity();
+        };
+
+    function subQuantity(dataId){
+            setVariables(dataId);
+            current_quantity--;
+            if (current_quantity < 0) {current_quantity=0};
+            updateInput(); 
+            sendQuantity();
+        };
 </script>

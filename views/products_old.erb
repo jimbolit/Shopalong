@@ -1,0 +1,55 @@
+
+
+<div class = "container">
+    <div class= "row">
+
+    <% for products in @products %>
+
+    <div class = "col-md-3">      
+            <div class="wrapper">
+                <div class="product-img">
+                    <img src="../<%=products[:image]%>" height="195" width="180">
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h1><%=products[:name]%></h1>
+                        <h2><%=products[:amount]%> </h2>
+                         <p>$<span><%="%.2f" % products[:price]%></span></p>
+                    </div>
+                    <div class="product-price-btn d-flex">
+                    <input type="number" min="0" class="form-control add-to-cart mr-auto" placeholder="0" name="quantity" id="<%=products[:id]%>_quantity">
+                        <button type="button" class="add_basket mr-2" id="<%= products[:id]%>"> + </button>
+                        <button type="button" class="add_basket mr-3" id="<%= products[:id]%>"> — </button>
+                    </div>
+                </div>
+            </div>
+    </div>
+<% end %>
+
+</div>
+
+<!-- Javascript -->
+
+<script>
+
+    $("button").click(function(){
+        id = $(this).attr("id");
+        id_quantity = ''.concat(id, "_quantity");
+        quantity = parseInt(document.getElementById(id_quantity).value, 10);
+        console.log(id, id_quantity, quantity);
+        $.ajax({
+            type: "post",
+            url: "/basket",
+            data: { product_id: id, order_quantity: quantity},
+            success: function(){
+                console.log("success")
+            },
+            error: function(){
+                console.log(arguments);
+            }
+        });
+    });
+
+    
+
+</script>
