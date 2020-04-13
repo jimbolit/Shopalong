@@ -38,7 +38,10 @@ DB.create_table! :orders do
   String :last_name
   String :email
   String :phone_number
-  Timestamp :timestamp
+  Decimal :total
+  Status :text
+  String :comments
+  DateTime :created_at
 end
 DB.create_table! :orders_products do
   primary_key :id

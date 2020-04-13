@@ -54,6 +54,10 @@ img.blur {
 
 }
 
+.order-table {
+    margin-bottom: 70px;
+}
+
 /* General button style */
 .startbtn {
     border: none;
@@ -87,6 +91,16 @@ img.blur {
 
 /* other buttons */
 
+.join-team{
+    background-color: #808080;
+    border-color: #808080;
+}
+
+
+.join-team:hover {
+    background-color: darkgray;
+    border-color: darkgray;
+}
 .startbtn.submit {
 	background-color: #28a745;
 	color: #fbfffa;
@@ -103,13 +117,16 @@ background-color: blue;
     margin-top: 20px;
 }
 
-.back {
+.back{
+    margin: 0px 0px 80px 0px;
+}
+.back-btn {
 	background-color: #28a745;
 	color: #fbfffa;
 	font-weight: bold;
 	border-radius: 2px;
-	padding: 15px 15px 15px 15px;
-    line-height: 50px;
+	padding: 5px 15px 5px 15px;
+    line-height: 30px;
     border-radius: 5px;
 }
 

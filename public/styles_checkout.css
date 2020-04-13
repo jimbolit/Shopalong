@@ -39,15 +39,15 @@ a:hover {
 }
 
 .breadcrumb{
-	margin-bottom: 100px;
+	margin-bottom: 0px;
 	background-color: #f6fdf2;
     display: ;
 }
 
 .breadcrumbBox{
 	background-color: #f6fdf2;
-	height: 100px;
-	margin-bottom: 10px;
+	height: 80px;
+	margin-bottom: 0px;
 	padding-top: 32px;
 }
 

@@ -121,6 +121,7 @@ post '/payment' do
              }[:order_quantity]
      }    
     end  
+    session[:total] = @sub_total
     view "payment"
 end
 
@@ -133,7 +134,9 @@ get '/delivery-confirmation' do
                                 first_name: session[:first_name],
                                 last_name: session[:last_name],
                                 email: session[:email],
-                                phone_number: session[:phone_number]
+                                phone_number: session[:phone_number],
+                                total: session[:total],
+                                created_at: Time.now
                                 )
 
             @current_order_details = orders_table.where(id: current_order).to_a
@@ -164,7 +167,7 @@ end
 
 
 get "/lists" do
-    @lists = lists_table.all.to_a
+    @orders = orders_table.all.to_a
     view "lists"
 end
 
@@ -187,10 +190,10 @@ post "/lists/thanks" do
 end
 
 get "/list/:id" do
-    @list = lists_table.where(id: params["id"]).to_a[0]
+    @list = orders_table.where(id: params["id"]).to_a[0]
     @users_table = users_table
 
-    @location = @list[:delivery_location]
+    @location = @list[:address]
     @results = Geocoder.search("#{@location}")
     lat_long = @results.first.coordinates
     lat = lat_long[0]

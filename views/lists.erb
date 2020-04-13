@@ -1,93 +1,33 @@
 
-<div class="jumbotron jumbotron-fluid bg-dark">
-    
-    <div class="jumbotron-background">
-        <img src="fresh_food.jpg" class="blur ">
-    </div>
-
-    <div class="container text-white">
-
-        <h1 class="display-4">Get your shopping delivered with Instashop</h1>
-        <p class="lead">Post your shopping list and one of our team members will deliver right to your door on the same or next day</p>
-        <hr class="my-4">
-
-    </div> 
-</div>
-
 <div class="container">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-12 mt-3">
             <h1> Active Lists </h1>
-            <% for lists in @lists %>
-                <h4 class= "mt-5"> <a href = "/list/<%= lists[:id]%>"> <%=lists[:delivery_location]%> </a> </h4>
-            <% end %>
-        </div>
-        <div class="col-sm-4 mt-5">
-        
-            <h2> Submit your list here </h2>
-            <form action="/lists/thanks" method="post">
-                <div class="form-group">
 
-                    <label>Your address</label>
-                    <textarea class="form-control" rows="1" name="delivery_location" id="autocomplete" onFocus="geolocate"></textarea>
-                </div>
-
-    <!-- start of javascript -->
-
-    <script>
-    // Set out variables
-
-    var placeSearch, autocomplete;
-
-    function initAutocomplete() {
-    // Create the autocomplete object, it's value is set based off input from the form, and restrict the search predictions to geographical location types.
-    autocomplete = new google.maps.places.Autocomplete(
-        document.getElementById('autocomplete'), {types: ['geocode']});
-
-    // Avoid paying for data that I don't need 
-    autocomplete.setFields(['address_component']);
-
-    // When the user selects an address from the drop-down, populate the
-    // address fields in the form.
-    autocomplete.addListener('place_changed', fillInAddress);
-    }
-
-    // Bias the autocomplete object to the user's geographical location,
-    // as supplied by the browser's 'navigator.geolocation' object.
-    function geolocate() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-        var geolocation = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-        };
-        var circle = new google.maps.Circle(
-            {center: geolocation, radius: position.coords.accuracy});
-        autocomplete.setBounds(circle.getBounds());
-        });
-    }
-    }
-        </script>
-
-        <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["google_maps_api_key"]%>&libraries=places&callback=initAutocomplete"
-            async defer></script>
-
-    <!-- end of javascript -->
-                
-                <div class="form-group">
-                    <label> Today's date </label>
-                    <textarea class="form-control" rows="1" name="date_posted"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Your shopping list</label>
-                    <textarea class="form-control" rows="5" name="items"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Leave a delivery note if required</label>
-                    <textarea class="form-control" rows="3" name="comments"></textarea>
-                </div>
-                <button class="btn btn-primary submit"> Submit</button>
-            </form>
+            <table class="table order-table mt-5">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Order Value</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 <% for orders in @orders %>
+                    <tr>
+                        <th scope="row"> <a href= '/list/<%=orders[:id]%>'> <%=orders[:id]%> </a> </th> 
+                            <td> <%=orders[:created_at].strftime("%d/%m/%Y")%> </td> 
+                            <td> <%=orders[:created_at].strftime("%I:%M %p")%> </td>
+                            <td> <%=orders[:address]%> </td>
+                            <td> $<%="%.2f" % orders[:total]%> </td>
+                            <td>No action</td>
+                    </tr>
+                 <% end %>
+                </tbody>
+            </table>           
         </div>
     </div>
 </div>

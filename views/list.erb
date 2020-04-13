@@ -1,30 +1,36 @@
-<div class = "row">
-    <div class = "col-sm-9">
-     <i class="fas fa-shopping-cart fa-3x"></i>
-        <h1 class = "mt-3"> <%= @list[:delivery_location] %> </h1>
-        
 
-        <h4 class = "mt-5"> Posted <%= @list[:date_posted] %> </h4>
+<div class="container">
+    <div class = "row">
+        <div class = "col-sm-9">
+        <i class="fas fa-shopping-cart fa-3x"></i>
+            <h1 class = "mt-3"> <%= @list[:address] %> </h1>
+            
 
-         <h4 class = "mt-5"> Phone number: </h4>
-         <p> <%= @users_table.where(id: @list[:user_id]).to_a[0][:mobile_number]%></p>
+            <h4 class = "mt-5"> Posted  
+            <%=@list[:created_at].strftime("%d/%m/%Y")%> at  
+            <%=@list[:created_at].strftime("%I:%M %p")%>
+            </h4>
 
-        <h4 class = "mt-5"> Delivery notes: </h4>
-        <p> <%= @list[:comments] %> </p>
-        <h4 class = "mt-5"> Item List </h4>
-            <p class = "mt-2"> <%= @list[:items] %></p>
+            <h4 class = "mt-5"> Phone number: </h4>
+            <p> <%= @list[:phone_number]%></p>
 
-    </div>
-     <div class="col-sm-3">
-        <h3 class = "mt-5">Delivery location </h3>
-        <p class = "mt-2"><%= @list[:delivery_location] %></p>
-        <iframe
-        width="300"
-        height="300"
-        frameborder="0" style="border:0"
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
-          &q=<%=@coords%>&zoom=10" allowfullscreen>
-      </iframe>
+            <h4 class = "mt-5"> Delivery notes: </h4>
+            <p> <%= @list[:comments] %> </p>
+            <h4 class = "mt-5"> Item List </h4>
+                <p class = "mt-2"> <%= @list[:items] %></p>
 
-    </div>
-</dif>
+        </div>
+        <div class="col-sm-3">
+            <h3 class = "mt-5">Delivery location </h3>
+            <p class = "mt-2"><%= @list[:address] %></p>
+            <iframe
+            width="300"
+            height="300"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
+            &q=<%=@coords%>&zoom=10" allowfullscreen>
+        </iframe>
+
+        </div>
+    </dif>
+</div>
