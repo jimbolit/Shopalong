@@ -46,6 +46,7 @@ end
 
 get "/category/:id" do
     @products = products_table.where(category_id: params[ :id]).to_a
+    @basket = session[:basket]
     view "products"
 end
 
@@ -58,6 +59,7 @@ end
 post '/basket' do
   content_type :json
   session[:basket] ||= []
+  session[:basket].delete_if {|h| h[:product_id] == params[:product_id].to_i} 
   session[:basket] << {:product_id => params[:product_id].to_i, :order_quantity => params[:order_quantity].to_i}
   session[:basket].to_json
 end

@@ -4,6 +4,12 @@
     <div class= "row">
 
     <% for products in @products %>
+    <% cart_quantity = @basket.find{|y| y[:product_id] == products[:id]}[:order_quantity]%>
+    <% if cart_quntity == []%>
+    <% quantity == 0 %>
+    <% else>
+    <% quantity == cart_quantity>
+    <% end %>
 
     <div class = "col-md-3">      
             <div class="wrapper">
@@ -17,7 +23,9 @@
                          <p>$<span><%="%.2f" % products[:price]%></span></p>
                     </div>
                     <div class="product-price-btn d-flex">
-                    <p type="text" min="0" class="form-control add-to-cart mr-auto" name="quantity" id="<%=products[:id]%>_quantity">0</p>
+                    <p type="text" min="0" class="form-control add-to-cart mr-auto" name="quantity" id="<%=products[:id]%>_quantity">
+                    <%= quantity %>
+                    </p>
                         <button type="button" class="add_basket mr-2" onclick = "addQuantity(this.dataset.id)" name="add" data-id="<%= products[:id]%>"> + </button>
                         <button type="button" class="add_basket mr-3" onclick = "subQuantity(this.dataset.id)"name="subtract" data-id="<%= products[:id]%>"> — </button>
                     </div>
@@ -60,6 +68,7 @@
     function addQuantity(dataId){
             setVariables(dataId);
             current_quantity++;
+            if (current_quantity > 2) {current_quantity=2};
             updateInput(); 
             sendQuantity();
         };
