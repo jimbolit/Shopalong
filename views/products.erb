@@ -25,7 +25,7 @@
                          <h5>$<span><%="%.2f" % products[:price]%></span></h5>
                     </div>
                     <div class="product-price-btn d-flex">
-                    <p type="text" min="0" class="form-control add-to-cart mr-auto <%= quantity %>" name="quantity" data-quantity="<%= quantity %>" id="<%=products[:id]%>_quantity">
+                    <p type="text" min="0" class="form-control add-to-cart mr-auto" name="quantity" data-quantity="<%= quantity %>" id="<%=products[:id]%>_quantity">
                     <%= quantity %>
                     </p>
                         <button type="button" class="add_basket mr-2" onclick = "addQuantity(this.dataset.id)" name="add" data-id="<%= products[:id]%>"> + </button>
@@ -42,6 +42,24 @@
 
 <script>
    
+    function addFormattingAll (){
+    var quantity = $(this).attr('data-quantity');
+    if(quantity > 0){
+         $(this).addClass("inCart")
+     }
+    };
+   
+    function subFormatting (){
+         document.getElementById(id_quantity).setAttribute('class',"form-control add-to-cart mr-auto");
+     };
+
+    function addFormatting (){
+         document.getElementById(id_quantity).setAttribute('class',"form-control add-to-cart mr-auto inCart");
+     };
+
+   
+   $('p').each(addFormattingAll);
+    
     function sendQuantity(){
         $.ajax({
             type: "post",
@@ -73,6 +91,7 @@
             if (current_quantity > 2) {current_quantity=2};
             updateInput(); 
             sendQuantity();
+            addFormatting();
         };
 
     function subQuantity(dataId){
@@ -81,6 +100,8 @@
             if (current_quantity < 0) {current_quantity=0};
             updateInput(); 
             sendQuantity();
+            console.log(current_quantity);
+            if (current_quantity == 0) {subFormatting()};
         };
 </script>
 
@@ -89,11 +110,6 @@
 
 <script>
 
-    $('p').each(function(){
-    var quantity = $(this).attr('data-quantity');
-     if(quantity > 0){
-         $(this).addClass("inCart")
-     }
-    });
+ 
 
 </script>
