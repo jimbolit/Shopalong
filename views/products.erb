@@ -1,7 +1,7 @@
 
 
 <div class = "container">
-<div class="buttonSpacer">
+<div class="buttonSpacer order">
     <a class="back text-center" href='/categories'> Back to all categories </a>
 </div>
     <div class= "row">
@@ -22,10 +22,10 @@
                     <div class="product-text">
                         <h1><%=products[:name]%></h1>
                         <h2><%=products[:amount]%> </h2>
-                         <p>$<span><%="%.2f" % products[:price]%></span></p>
+                         <h5>$<span><%="%.2f" % products[:price]%></span></h5>
                     </div>
                     <div class="product-price-btn d-flex">
-                    <p type="text" min="0" class="form-control add-to-cart mr-auto" name="quantity" id="<%=products[:id]%>_quantity">
+                    <p type="text" min="0" class="form-control add-to-cart mr-auto <%= quantity %>" name="quantity" data-quantity="<%= quantity %>" id="<%=products[:id]%>_quantity">
                     <%= quantity %>
                     </p>
                         <button type="button" class="add_basket mr-2" onclick = "addQuantity(this.dataset.id)" name="add" data-id="<%= products[:id]%>"> + </button>
@@ -82,4 +82,18 @@
             updateInput(); 
             sendQuantity();
         };
+</script>
+
+
+<!-- Conditionally format -->
+
+<script>
+
+    $('p').each(function(){
+    var quantity = $(this).attr('data-quantity');
+     if(quantity > 0){
+         $(this).addClass("inCart")
+     }
+    });
+
 </script>

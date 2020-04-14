@@ -1,23 +1,55 @@
 
 <div class="container">
-    <div class = "row">
+    <div class = "row order-details">
         <div class = "col-sm-9">
-        <i class="fas fa-shopping-cart fa-3x"></i>
+            <i class="fas fa-shopping-cart fa-3x"></i>
             <h1 class = "mt-3"> <%= @list[:address] %> </h1>
             
+            <div class = "row">
+              <div class = "col-sm-6">
+                <h6 class = "mt-5"> Posted </h6>  
+                <h5 class="posted">
+                        <span style="font-weight:bold"> <%=@list[:created_at].strftime("%d/%m/%Y")%> </span> at  
+                        <span style="font-weight:bold"> <%=@list[:created_at].strftime("%I:%M %p")%> </span>
+                    </h5>
+              </div>
+              <div class = "col-sm-3">
+                <button class="back-btn mt-5"> Fulfill this order </button>
+              </div>
+            </div>
 
-            <h4 class = "mt-5"> Posted  
-            <%=@list[:created_at].strftime("%d/%m/%Y")%> at  
-            <%=@list[:created_at].strftime("%I:%M %p")%>
-            </h4>
+            <h6 class = "mt-5"> Name </h6>
+            <h5> <%= @list[:first_name]%></h5>
 
-            <h4 class = "mt-5"> Phone number: </h4>
-            <p> <%= @list[:phone_number]%></p>
+            <h6 class = "mt-5"> Phone number: </h6>
+            <h5> <%= @list[:phone_number]%></h5>
 
-            <h4 class = "mt-5"> Delivery notes: </h4>
+            <h6 class = "mt-5"> Delivery notes: </h6>
             <p> <%= @list[:comments] %> </p>
-            <h4 class = "mt-5"> Item List </h4>
-                <p class = "mt-2"> <%= @list[:items] %></p>
+
+            <h6 class = "mt-5"> Item List </h6>
+            <table class="table order-table mt-5 css-serial">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% for item in @items %>
+                <tr>
+                            <td></td>
+                            <td> <%= @categories[id: @products[id: item[:id]][:category_id]][:name] %> </td> 
+                            <td> <%= @products[id: item[:id]][:name] %> </td>
+                            <td> <%=item[:order_quantity]%> </td>
+                            <td> <img src="../<%=@products[id: item[:id]][:image]%>" class="img-thumbnail product-thumbnail"> </td>
+                </tr>
+                <% end %>
+                 </tbody>
+            </table>    
 
         </div>
         <div class="col-sm-3">
@@ -34,3 +66,4 @@
         </div>
     </dif>
 </div>
+

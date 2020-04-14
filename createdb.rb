@@ -6,7 +6,8 @@ DB = Sequel.connect(connection_string)                                          
 #######################################################################################
 
 # Database schema - this should reflect your domain model
-DB.create_table! :lists do
+DB.create_table! 
+:lists do
   primary_key :id
   foreign_key :user_id
   String :date_posted
@@ -15,6 +16,14 @@ DB.create_table! :lists do
   String :delivery_location
 end
 DB.create_table! :users do
+  primary_key :id
+  String :name
+  String :email
+  String :password
+  String :mobile_number
+  String :address
+end
+DB.create_table! :team do
   primary_key :id
   String :name
   String :email
@@ -33,6 +42,7 @@ end
 DB.create_table! :orders do
   primary_key :id
   foreign_key :user_id
+  foreign_key :team_id
   String  :address
   String :first_name
   String :last_name

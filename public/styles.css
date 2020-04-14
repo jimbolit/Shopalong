@@ -58,6 +58,27 @@ img.blur {
     margin-bottom: 70px;
 }
 
+.product-thumbnail{
+    max-height: 80px;
+}
+
+h6 order-details{
+
+}
+
+.css-serial {
+  counter-reset: serial-number;  /* Set the serial number counter to 0 */
+}
+
+.css-serial td:first-child:before {
+  counter-increment: serial-number;  /* Increment the serial number counter */
+  content: counter(serial-number);  /* Display the counter */
+}
+
+.posted{
+    word-spacing: 10px;
+}
+
 /* General button style */
 .startbtn {
     border: none;
@@ -128,6 +149,11 @@ background-color: blue;
 	padding: 5px 15px 5px 15px;
     line-height: 30px;
     border-radius: 5px;
+}
+
+.inCart {
+    color: red;
+    background-color: red;
 }
 
 .order a{
@@ -410,6 +436,16 @@ background-color: blue;
   text-transform: uppercase;
   color: lightslategray;
   letter-spacing: 0.2em;
+}
+
+.product-text h5 {
+  margin: 0 0 0 30px;
+  font-family: 'Playfair Display', serif;
+  color: #474747;
+  line-height: 1.7em;
+  font-size: 18px;
+  font-weight: lighter;
+  overflow: hidden;
 }
 
 .product-text p {

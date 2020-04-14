@@ -191,6 +191,11 @@ end
 
 get "/list/:id" do
     @list = orders_table.where(id: params["id"]).to_a[0]
+    @items = orders_products_table.where(order_id: @list[:id]).to_a
+    @products = products_table
+    @categories = categories_table
+
+
     @users_table = users_table
 
     @location = @list[:address]
