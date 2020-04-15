@@ -1,20 +1,163 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-</script>
-<script>
-$(document).ready(function(){
-  $("p").click(function(){
-    $(this).hide();
-  });
-});
-</script>
-</head>
 <body>
+	<header>
+		<div id="logo"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-logo.svg" alt="Homepage"></div>
 
-<h2>jQuery click event example</h2>
-<p>This example is published on beginnersbook.com. This paragraph will be
-hidden when you click on it.</p>
+		<div id="cd-hamburger-menu"><a class="cd-img-replace" href="#0">Menu</a></div>
+		<div id="cd-cart-trigger"><a class="cd-img-replace" href="#0">Cart</a></div>
+	</header>
+
+	<nav id="main-nav">
+		<ul>
+			<li><a href="#0">Home</a></li>
+			<li><a href="#0">About</a></li>
+			<li><a class="current" href="#0">Services</a></li>
+			<li><a href="#0">Gallery</a></li>
+			<li><a href="#0">Contact</a></li>
+		</ul>
+	</nav>
+
+	<main>
+		<ul id="cd-gallery-items" class="cd-container">
+			<li>
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
+			</li>
+
+			<li>
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
+			</li>
+
+			<li>
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
+			</li>
+
+			<li>
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
+			</li>
+
+			<li>
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
+			</li>
+
+			<li>
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
+			</li>
+
+			<li>
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
+			</li>
+
+			<li>
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
+			</li>
+
+			<li>
+				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
+			</li>
+		</ul> <!-- cd-gallery-items -->
+	</main>
+
+	<div id="cd-shadow-layer"></div>
+
+	<div id="cd-cart">
+		<h2>Cart</h2>
+		<ul class="cd-cart-items">
+			<li>
+				<span class="cd-qty">1x</span> Product Name
+				<div class="cd-price">$9.99</div>
+				<a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
+			</li>
+
+			<li>
+				<span class="cd-qty">2x</span> Product Name
+				<div class="cd-price">$19.98</div>
+				<a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
+			</li>
+
+			<li>
+				<span class="cd-qty">1x</span> Product Name
+				<div class="cd-price">$9.99</div>
+				<a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
+			</li>
+		</ul> <!-- cd-cart-items -->
+
+		<div class="cd-cart-total">
+			<p>Total <span>$39.96</span></p>
+		</div> <!-- cd-cart-total -->
+
+		<a href="#0" class="checkout-btn">Checkout</a>
+		
+		<p class="cd-go-to-cart"><a href="#0">Go to cart page</a></p>
+	</div> <!-- cd-cart -->
 </body>
-</html>
+
+<script>
+jQuery(document).ready(function($){
+	//if you change this breakpoint in the style.css file (or _layout.scss if you use SASS), don't forget to update this value as well
+	var $L = 1200,
+		$menu_navigation = $('#main-nav'),
+		$cart_trigger = $('#cd-cart-trigger'),
+		$hamburger_icon = $('#cd-hamburger-menu'),
+		$lateral_cart = $('#cd-cart'),
+		$shadow_layer = $('#cd-shadow-layer');
+
+	//open lateral menu on mobile
+	$hamburger_icon.on('click', function(event){
+		event.preventDefault();
+		//close cart panel (if it's open)
+		$lateral_cart.removeClass('speed-in');
+		toggle_panel_visibility($menu_navigation, $shadow_layer, $('body'));
+	});
+
+	//open cart
+	$cart_trigger.on('click', function(event){
+		event.preventDefault();
+		//close lateral menu (if it's open)
+		$menu_navigation.removeClass('speed-in');
+		toggle_panel_visibility($lateral_cart, $shadow_layer, $('body'));
+	});
+
+	//close lateral cart or lateral menu
+	$shadow_layer.on('click', function(){
+		$lateral_cart.removeClass('speed-in');
+		$menu_navigation.removeClass('speed-in');
+		$shadow_layer.removeClass('is-visible');
+		$('body').removeClass('overflow-hidden');
+	});
+
+	//move #main-navigation inside header on laptop
+	//insert #main-navigation after header on mobile
+	move_navigation( $menu_navigation, $L);
+	$(window).on('resize', function(){
+		move_navigation( $menu_navigation, $L);
+		
+		if( $(window).width() >= $L && $menu_navigation.hasClass('speed-in')) {
+			$menu_navigation.removeClass('speed-in');
+			$shadow_layer.removeClass('is-visible');
+			$('body').removeClass('overflow-hidden');
+		}
+
+	});
+});
+
+function toggle_panel_visibility ($lateral_panel, $background_layer, $body) {
+	if( $lateral_panel.hasClass('speed-in') ) {
+		$lateral_panel.removeClass('speed-in');
+		$background_layer.removeClass('is-visible');
+		$body.removeClass('overflow-hidden');
+	} else {
+		$lateral_panel.addClass('speed-in');
+		$background_layer.addClass('is-visible');
+		$body.addClass('overflow-hidden');
+	}
+}
+
+function move_navigation( $navigation, $MQ) {
+	if ( $(window).width() >= $MQ ) {
+		$navigation.detach();
+		$navigation.appendTo('header');
+	} else {
+		$navigation.detach();
+		$navigation.insertAfter('header');
+	}
+}
+</script>
