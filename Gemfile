@@ -7,6 +7,9 @@ gem 'twilio-ruby'
 gem 'bcrypt'
 gem 'geocoder'
 gem 'google_places'
+gem 'sassc'
+gem 'bourbon'
+gem 'haml'
 
 group :development do
   gem 'sqlite3'

@@ -79,6 +79,10 @@ h6 order-details{
     word-spacing: 10px;
 }
 
+.products-row{
+    z-index: -10;
+}
+
 /* General button style */
 .startbtn {
     border: none;

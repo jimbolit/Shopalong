@@ -1,163 +1,92 @@
-<body>
-	<header>
-		<div id="logo"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-logo.svg" alt="Homepage"></div>
+    
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<div id="cd-hamburger-menu"><a class="cd-img-replace" href="#0">Menu</a></div>
-		<div id="cd-cart-trigger"><a class="cd-img-replace" href="#0">Cart</a></div>
-	</header>
+    <!-- Google Fonts -->
+    <!-- Swap out "Roboto" for the font(s) you want to use -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
 
-	<nav id="main-nav">
-		<ul>
-			<li><a href="#0">Home</a></li>
-			<li><a href="#0">About</a></li>
-			<li><a class="current" href="#0">Services</a></li>
-			<li><a href="#0">Gallery</a></li>
-			<li><a href="#0">Contact</a></li>
-		</ul>
-	</nav>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Your own CSS -->
+    <link rel="stylesheet" href="/styles_scss.css">
 
-	<main>
-		<ul id="cd-gallery-items" class="cd-container">
-			<li>
-				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
-			</li>
+   <!-- JQuery enable -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
 
-			<li>
-				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
-			</li>
+    <title>Shopalong</title>
+  </head>
+  <body>
+<nav>
+  <div class="container">
+    <ul class="navbar-right">
+      <li><a href="#" id="cart"><i class="fa fa-shopping-cart"></i> Cart <span class="badge">3</span></a></li>
+    </ul> <!--end navbar-right -->
+  </div> <!--end container -->
+</nav>
 
-			<li>
-				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
-			</li>
 
-			<li>
-				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
-			</li>
+<div class="container">
+  <div class="shopping-cart">
+    <div class="shopping-cart-header">
+      <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+      <div class="shopping-cart-total">
+        <span class="lighter-text">Total:</span>
+        <span class="main-color-text">$2,229.97</span>
+      </div>
+    </div> <!--end shopping-cart-header -->
 
-			<li>
-				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
-			</li>
+    <ul class="shopping-cart-items">
+      <li class="clearfix">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
+        <span class="item-name">Sony DSC-RX100M III</span>
+        <span class="item-price">$849.99</span>
+        <span class="item-quantity">Quantity: 01</span>
+      </li>
 
-			<li>
-				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
-			</li>
+      <li class="clearfix">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item1" />
+        <span class="item-name">KS Automatic Mechanic...</span>
+        <span class="item-price">$1,249.99</span>
+        <span class="item-quantity">Quantity: 01</span>
+      </li>
 
-			<li>
-				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
-			</li>
+      <li class="clearfix">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg" alt="item1" />
+        <span class="item-name">Kindle, 6" Glare-Free To...</span>
+        <span class="item-price">$129.99</span>
+        <span class="item-quantity">Quantity: 01</span>
+      </li>
+    </ul>
 
-			<li>
-				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
-			</li>
+    <a href="#" class="button">Checkout</a>
+  </div> <!--end shopping-cart -->
+</div> <!--end container -->
 
-			<li>
-				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/thumb.jpg" alt="Preview image">
-			</li>
-		</ul> <!-- cd-gallery-items -->
-	</main>
 
-	<div id="cd-shadow-layer"></div>
-
-	<div id="cd-cart">
-		<h2>Cart</h2>
-		<ul class="cd-cart-items">
-			<li>
-				<span class="cd-qty">1x</span> Product Name
-				<div class="cd-price">$9.99</div>
-				<a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
-			</li>
-
-			<li>
-				<span class="cd-qty">2x</span> Product Name
-				<div class="cd-price">$19.98</div>
-				<a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
-			</li>
-
-			<li>
-				<span class="cd-qty">1x</span> Product Name
-				<div class="cd-price">$9.99</div>
-				<a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
-			</li>
-		</ul> <!-- cd-cart-items -->
-
-		<div class="cd-cart-total">
-			<p>Total <span>$39.96</span></p>
-		</div> <!-- cd-cart-total -->
-
-		<a href="#0" class="checkout-btn">Checkout</a>
-		
-		<p class="cd-go-to-cart"><a href="#0">Go to cart page</a></p>
-	</div> <!-- cd-cart -->
-</body>
 
 <script>
-jQuery(document).ready(function($){
-	//if you change this breakpoint in the style.css file (or _layout.scss if you use SASS), don't forget to update this value as well
-	var $L = 1200,
-		$menu_navigation = $('#main-nav'),
-		$cart_trigger = $('#cd-cart-trigger'),
-		$hamburger_icon = $('#cd-hamburger-menu'),
-		$lateral_cart = $('#cd-cart'),
-		$shadow_layer = $('#cd-shadow-layer');
 
-	//open lateral menu on mobile
-	$hamburger_icon.on('click', function(event){
-		event.preventDefault();
-		//close cart panel (if it's open)
-		$lateral_cart.removeClass('speed-in');
-		toggle_panel_visibility($menu_navigation, $shadow_layer, $('body'));
-	});
+(function(){
+ 
+  $("#cart").on("click", function() {
+    $(".shopping-cart").fadeToggle( "fast");
+  });
+  
+})();
 
-	//open cart
-	$cart_trigger.on('click', function(event){
-		event.preventDefault();
-		//close lateral menu (if it's open)
-		$menu_navigation.removeClass('speed-in');
-		toggle_panel_visibility($lateral_cart, $shadow_layer, $('body'));
-	});
-
-	//close lateral cart or lateral menu
-	$shadow_layer.on('click', function(){
-		$lateral_cart.removeClass('speed-in');
-		$menu_navigation.removeClass('speed-in');
-		$shadow_layer.removeClass('is-visible');
-		$('body').removeClass('overflow-hidden');
-	});
-
-	//move #main-navigation inside header on laptop
-	//insert #main-navigation after header on mobile
-	move_navigation( $menu_navigation, $L);
-	$(window).on('resize', function(){
-		move_navigation( $menu_navigation, $L);
-		
-		if( $(window).width() >= $L && $menu_navigation.hasClass('speed-in')) {
-			$menu_navigation.removeClass('speed-in');
-			$shadow_layer.removeClass('is-visible');
-			$('body').removeClass('overflow-hidden');
-		}
-
-	});
-});
-
-function toggle_panel_visibility ($lateral_panel, $background_layer, $body) {
-	if( $lateral_panel.hasClass('speed-in') ) {
-		$lateral_panel.removeClass('speed-in');
-		$background_layer.removeClass('is-visible');
-		$body.removeClass('overflow-hidden');
-	} else {
-		$lateral_panel.addClass('speed-in');
-		$background_layer.addClass('is-visible');
-		$body.addClass('overflow-hidden');
-	}
-}
-
-function move_navigation( $navigation, $MQ) {
-	if ( $(window).width() >= $MQ ) {
-		$navigation.detach();
-		$navigation.appendTo('header');
-	} else {
-		$navigation.detach();
-		$navigation.insertAfter('header');
-	}
-}
 </script>
+
+  </body>
+</html>

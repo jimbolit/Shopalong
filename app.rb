@@ -1,3 +1,5 @@
+require 'haml'
+require 'sassc'
 require "sinatra"                                                               
 require "sinatra/reloader" if development?                                      
 require "sequel"                                                                
@@ -6,6 +8,8 @@ require "twilio-ruby"
 require "bcrypt"   
 require "geocoder" 
 require "google_places"  
+
+
 
 connection_string = ENV['DATABASE_URL'] || "sqlite://#{Dir.pwd}/development.sqlite3"  #
 DB ||= Sequel.connect(connection_string)                                        
@@ -28,7 +32,23 @@ orders_table = DB.from( :orders)
     auth_token = ENV["twilio_token"]
     client = Twilio::REST::Client.new(account_sid, auth_token)
 
-# Code starts
+# SCSS compiling code
+
+template = File.read('public/styles_scss.scss')
+options = { style:               :compressed,
+            filename:            'styles_scss.scss',
+            output_path:         'styles_scss.css',
+            source_map_file:     'styles_scss.css.map',
+            load_paths:          ['styles'],
+            source_map_contents: true }
+engine = SassC::Engine.new(template, options)
+css = engine.render
+File.write('public/styles_scss.css', css)
+map = engine.source_map
+File.write('public/styles_scss.css.map', map)
+
+
+    # Code starts
 
 before do
     @current_user = users_table.where(id: session["user_id"]).to_a[0]
@@ -161,7 +181,7 @@ get '/delivery-confirmation' do
 end
 
 get '/test' do
-    view "test"
+    erb :test, :layout => false
 end
 
 
