@@ -1,4 +1,4 @@
-$main-color: #6394F8;
+$main-color: #28a745;
 $light-text: #ABB0BE;
 
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
@@ -9,7 +9,11 @@ $light-text: #ABB0BE;
   box-sizing: border-box;
 }
 
-
+.check-cart a{
+    font-size: 20px;
+    color: $main-color;
+    font-weight: bold;
+}
 
 .lighter-text {
   color: #ABB0BE;
@@ -21,7 +25,7 @@ $light-text: #ABB0BE;
 
 nav {
   padding: 20px 0 40px 0;
-  background: #F8F8F8;
+  background:white;
   font-size: 16px;
   
   .navbar-left {
@@ -35,7 +39,8 @@ nav {
     
     li {
       display: inline;
-      padding-left: 20px;
+      padding-left: 5px;
+      
       a {
         color: #777777;
         text-decoration: none;
@@ -92,9 +97,15 @@ nav {
     
     padding-top: 20px;
 
+    
+      
       li {
         margin-bottom: 18px;
+        list-style: none;
+        padding-right: 0px;
+        margin-left: -40px;
       }
+      
 
     img {
       float: left;
