@@ -66,10 +66,11 @@ end
 
 get "/category/:id" do
     @products = products_table.where(category_id: params[ :id]).to_a
-    @basket = session[:basket]
-    basket_ids = session[:basket].map {|x| x.values[0]}
 
-    @basket_products = products_table.where(id: basket_ids).to_a
+   @basket = session[:basket].select{|x| x[:order_quantity]>0}
+     basket_ids = @basket.map {|x| x.values[0]}
+     
+     @basket_products = products_table.where(id: basket_ids).to_a
     
      @sub_total = 0
      @basket_products.each{
@@ -97,8 +98,9 @@ end
 
 get '/basket' do
     begin
-     @basket = session[:basket]
-     basket_ids = session[:basket].map {|x| x.values[0]}
+     @basket = session[:basket].select{|x| x[:order_quantity]>0}
+     basket_ids = @basket.map {|x| x.values[0]}
+     
      @products = products_table.where(id: basket_ids).to_a
     
      @sub_total = 0
@@ -117,8 +119,9 @@ end
 
 get '/delivery-details' do
     begin
-     @basket = session[:basket]
-     basket_ids = session[:basket].map {|x| x.values[0]}
+     @basket = session[:basket].select{|x| x[:order_quantity]>0}
+     basket_ids = @basket.map {|x| x.values[0]}
+     
      @products = products_table.where(id: basket_ids).to_a
     
      @sub_total = 0
@@ -141,8 +144,9 @@ post '/payment' do
     session[:email] = params[:email]
     session[:phone_number] = params[:phone_number]
 
-     @basket = session[:basket]
-     basket_ids = session[:basket].map {|x| x.values[0]}
+         @basket = session[:basket].select{|x| x[:order_quantity]>0}
+     basket_ids = @basket.map {|x| x.values[0]}
+     
      @products = products_table.where(id: basket_ids).to_a
     
      @sub_total = 0
@@ -150,7 +154,7 @@ post '/payment' do
          |i| @sub_total = @sub_total + i[:price] * @basket.find{
              |y| y[:product_id] == i[:id]
              }[:order_quantity]
-     }    
+     }
     end  
     session[:total] = @sub_total
     view "payment"
@@ -160,7 +164,7 @@ get '/delivery-confirmation' do
     begin
         begin
             # need to link up order_id
-            current_order = orders_table.insert( user_id: @current_user[:id],
+            current_order = orders_table.insert( user_id: 1,
                                 address: session[:address],
                                 first_name: session[:first_name],
                                 last_name: session[:last_name],
